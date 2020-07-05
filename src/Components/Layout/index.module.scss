@@ -9,16 +9,14 @@
     flex: 1;
     outline: 1px dashed;
     background-color: #fafafa;
+    transition: width 1s ease-out;
   }
   .sidebar {
     width: 420px;
     height: 100vh;
     flex-grow: 0;
     outline: 1px dashed;
-    -webkit-transition: width 0.5s 0s ease;
-    -moz-transition: width 0.5s 0s ease;
-    -o-transition: width 0.5s 0s ease;
-    transition: width 0.5s 0s ease;
+    transition: width 1s ease-out;
   }
 }
 

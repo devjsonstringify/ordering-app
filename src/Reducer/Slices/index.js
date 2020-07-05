@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux';
 
 //import local files
-import navigation from './SideBar.js';
+import sideBarReducer from './SideBar.js';
+import cartReducer from './CartSlice.js';
+import productsReducer from './ProductsSlice.js';
 
 const rootReducer = combineReducers({
-  navigation,
+	sideBar: sideBarReducer,
+	cart: cartReducer,
+	products: productsReducer,
 });
 
 export default rootReducer;
