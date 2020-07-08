@@ -1,3 +1,3 @@
-import layout from './Layout'
+// import react library
 import Layout from './Layout'
 export default Layout

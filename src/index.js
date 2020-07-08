@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 //import local files
 import App from './App';
-import store from './Reducer/Store';
+import store from './Ducks/Store';
 
 ReactDOM.render(
   <Provider store={store}>

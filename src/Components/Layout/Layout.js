@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+// import react library
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 //import local files
 import style from './index.module.scss';
 import Navigation from '../Navigation/Navigation';
-import Main from '../Main';
+import Main from '../Main/Main';
 import Sidebar from '../Sidebar';
 
 export default function Layout({ children }) {
@@ -16,7 +17,7 @@ export default function Layout({ children }) {
 				<div className={` ${style.nav}`}>
 					<Navigation />
 				</div>
-				<div className={`${style.main}`}>
+				<div className={`${style.main} container`}>
 					<Main>{children}</Main>
 				</div>
 				{showSidebar && (

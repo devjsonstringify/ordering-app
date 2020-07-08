@@ -1,14 +1,26 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+//import local files
+import { addToCart } from '../../Ducks/Slices/CartSlice.js';
+import { cartSelector } from '../../Ducks/Slices/CartSlice.js';
 
 export default function SideBar() {
-	const cart = useSelector((state) => state.cart);
-	console.log(cart);
+	//local state
+	const [isOpen, setOpen] = useState(false);
+	const products = useSelector(cartSelector);
+
+	//state management
+	const dispatch = useDispatch();
+
+	// const addToCart
+
+	// useEffect(() => {
+	// }, []);
+
 	return (
 		<div className='container-fluid'>
-			<pre>
-				<code>{JSON.stringify(cart, null, 2)}</code>
-			</pre>
+			<pre>sidebar...</pre>
 		</div>
 	);
 }

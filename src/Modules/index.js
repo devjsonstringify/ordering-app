@@ -1,6 +1,5 @@
-import Dashboard from './Dashboard';
+import Shelf from './Shelf';
 import Setting from './Setting';
 import Bills from './Bills';
-import Food from './Food';
 
-export default [Dashboard, Setting, Bills, Food];
+export default [Shelf, Setting, Bills];

@@ -1,3 +1,4 @@
+// import react library
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
@@ -9,7 +10,7 @@ import Shop from './../../Assets/images/shop.png';
 import Dashboard from './../../Assets/images/dashboard.jpg';
 import Bills from './../../Assets/images/bills.jpg';
 
-import { toggleSideBar } from '../../Reducer/Slices/SideBar.js';
+import { toggleSideBar } from '../../Ducks/Slices/SideBar.js';
 
 export default function Navigation() {
 	const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export default function Navigation() {
 			<div className='p-3'>
 				<ul className='nav d-flex flex-column align-items-center'>
 					<li className='nav-item my-5'>
-						<NavLink to='/dashboard' activeClassName={style.current}>
+						<NavLink to='/' activeClassName={style.current}>
 							<img src={Shop} alt='shop' />
 							<p>Home</p>
 						</NavLink>
