@@ -9,6 +9,18 @@ export default function Spinner(props) {
 			width={400}
 			speed={2}
 			backgroundColor='transparent'
+			style={{ 
+				position: 'fixed',
+				marginLeft: `-32px`,
+				marginTop: `-32px`,
+				top: `50%`,
+  				left: `50%`,
+				width: `100px`,
+				height: `100px`,
+				zIndex: 10,
+				borderRadius: `50px`,
+				backgroundColor: `#000`
+			}}
 			{...props}>
 			<circle cx='150' cy='86' r='8' />
 			<circle cx='194' cy='86' r='8' />
