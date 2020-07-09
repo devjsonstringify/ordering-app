@@ -1,6 +1,6 @@
-
 // import library
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
 //import local files
@@ -14,13 +14,12 @@ import {
 	fetchProducts,
 	productsSelector,
 } from '../../Ducks/Slices/ProductsSlice.js';
-import { sortSelector} from '../../Ducks/Slices/SortSlice.js'
+import { sortSelector } from '../../Ducks/Slices/SortSlice.js';
 
 function Shelf() {
-
 	// variables declaration
 	const { products, loading, hasErrors } = useSelector(productsSelector);
-	const sortProducts = useSelector(sortSelector)
+	const sortProducts = useSelector(sortSelector);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -32,8 +31,8 @@ function Shelf() {
 			{loading && <Spinner />}
 			{hasErrors && <p>Something is wrong...</p>}
 			<div className='shelf-container'>
-			 <ShelfHeader productsLength={products.length} />
-			<ProductList products={products} />
+				<ShelfHeader productsLength={products.length} />
+				<ProductList products={products} />
 			</div>
 		</Layout>
 	);
@@ -46,4 +45,18 @@ export default {
 		component: Shelf,
 	},
 	name: 'Shelf',
+};
+
+Shelf.propTypes = {
+	loading: PropTypes.string,
+	hasErrors: PropTypes.bool,
+	products: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		descripition: PropTypes.string.isRequired,
+		price: PropTypes.number.isRequired,
+		category: PropTypes.string.isRequired,
+		sku: PropTypes.string.isRequired,
+	}),
+	dispatch: PropTypes.func,
+	sortProducts: PropTypes.string,
 };

@@ -1,6 +1,8 @@
+// import react library
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function SelectBox({ options,  handleOnChange }) {
+export default function SelectBox({ options, handleOnChange }) {
 	const createOptions = (options) =>
 		options.map((o) => (
 			<option value={o.value} key={o.value}>
@@ -9,10 +11,13 @@ export default function SelectBox({ options,  handleOnChange }) {
 		));
 
 	return (
-		<select
-			onChange={(e) => handleOnChange(e.target.value)}
-		>
+		<select onChange={(e) => handleOnChange(e.target.value)}>
 			{createOptions(options)}
 		</select>
 	);
 }
+
+SelectBox.propTypes = {
+	options: PropTypes.array,
+	handleOnChange: PropTypes.func,
+};

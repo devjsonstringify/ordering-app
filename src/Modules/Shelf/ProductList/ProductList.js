@@ -1,6 +1,8 @@
+// import react library
 import React from 'react';
+import PropTypes from 'prop-types';
 
-//import local files
+// import local files
 import Product from './Product';
 
 export default function ProductList({ products }) {
@@ -14,3 +16,7 @@ export default function ProductList({ products }) {
 		</div>
 	);
 }
+
+ProductList.propTypes = {
+	products: PropTypes.array.isRequired,
+};

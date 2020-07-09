@@ -1,7 +1,9 @@
+// import react library
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
-//import local files
+// import local files
 import style from './index.module.scss';
 
 //state management
@@ -34,3 +36,7 @@ export default function Product({ products }) {
 		</div>
 	);
 }
+
+Product.propTypes = {
+	products: PropTypes.object,
+};
