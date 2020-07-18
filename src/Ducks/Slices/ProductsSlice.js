@@ -37,42 +37,45 @@ export default productsSlice.reducer;
 
 const compare = {
 	lowestprice: (a, b) => {
-	  if (a.price < b.price) return -1;
-	  if (a.price > b.price) return 1;
-	  return 0;
+		if (a.price < b.price) return -1;
+		if (a.price > b.price) return 1;
+		return 0;
 	},
 	highestprice: (a, b) => {
-	  if (a.price > b.price) return -1;
-	  if (a.price < b.price) return 1;
-	  return 0;
-	}
-  };
+		if (a.price > b.price) return -1;
+		if (a.price < b.price) return 1;
+		return 0;
+	},
+};
 
-export function fetchProducts(sortBy) {
+export function fetchProducts(filterBy, sortBy) {
 	return async (dispatch) => {
 		dispatch(getProducts());
 		try {
-			const response = await fetch(`http://localhost:3000/api/v1/foods`);
+			const response = await fetch(`http://localhost:3000/api/v1/foods`, {
+				headers: {
+					'content-type': 'application/json',
+				},
+			});
 			const data = await response.json();
-
-
-			setTimeout( () => {
-				if(!!sortBy && data.length > 0){
-					dispatch(getProductsSuccess(data.sort(compare[sortBy])));
-					
+			if (!!filterBy && filterBy.length > 0) {
+				// * by logic show all products when all button is clicked this is temporary workaround only
+				if (filterBy === 'all') {
+					window.location.reload();
 				}
-			}, 2000 )
+				dispatch(
+					getProductsSuccess(data.filter((item) => item.category == filterBy))
+				);
+				return;
+			}
+			if (!!sortBy) {
+				dispatch(getProductsSuccess(data.sort(compare[sortBy])));
+				return;
+			}
 
-			setTimeout( () => {
-				dispatch(getProductsSuccess(data));
-			}, 2000 )
-			
-			
-			
+			dispatch(getProductsSuccess(data));
 		} catch (error) {
 			dispatch(getProductsFailure());
 		}
 	};
 }
-
-

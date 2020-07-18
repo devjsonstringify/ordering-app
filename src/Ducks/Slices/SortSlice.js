@@ -1,10 +1,8 @@
-
 // import react library
 import { createSlice } from '@reduxjs/toolkit';
 
-
 export const initialState = {
-	type: ''
+	type: '',
 };
 
 const sortSlice = createSlice({
@@ -13,13 +11,10 @@ const sortSlice = createSlice({
 	reducers: {
 		updateSort: (state, action) => {
 			state.type = action.payload;
-		}
+		},
 	},
 });
 
-export const {
-	updateSort
-} = sortSlice.actions;
+export const { updateSort, toggle } = sortSlice.actions;
 export const sortSelector = (state) => state.sort.type || '';
 export default sortSlice.reducer;
-

@@ -1,5 +1,5 @@
 // import library
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,6 +8,7 @@ import ProductList from './ProductList/';
 import Spinner from '../../Components/Spinner';
 import Layout from '../../Components/Layout/Layout';
 import ShelfHeader from './ShellHeader';
+import Filter from './Filter';
 
 // state management files
 import {
@@ -15,22 +16,25 @@ import {
 	productsSelector,
 } from '../../Ducks/Slices/ProductsSlice.js';
 import { sortSelector } from '../../Ducks/Slices/SortSlice.js';
+// import { filterSelector } from '../../Ducks/Slices/FilterSlice.js';
 
 function Shelf() {
 	// variables declaration
 	const { products, loading, hasErrors } = useSelector(productsSelector);
 	const sortProducts = useSelector(sortSelector);
+	const filterProducts = useSelector((state) => state.filter.items);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(fetchProducts(sortProducts));
-	}, [sortProducts, dispatch]);
+		dispatch(fetchProducts(filterProducts, sortProducts));
+	}, [dispatch, filterProducts, sortProducts]);
 
 	return (
 		<Layout>
 			{loading && <Spinner />}
 			{hasErrors && <p>Something is wrong...</p>}
-			<div className='shelf-container'>
+			<div className='shelf-container py-5'>
+				<Filter />
 				<ShelfHeader productsLength={products.length} />
 				<ProductList products={products} />
 			</div>
