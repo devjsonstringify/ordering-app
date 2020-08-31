@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { Card } from './Card.js';
 
 //state management
-import { addItem } from './../../Reducer/Slices/CartSlice.js';
+import { addItem } from './../../Reducer/Features/CartSlice.js';
 
 export function Cards({ data }) {
 	const dispatch = useDispatch();

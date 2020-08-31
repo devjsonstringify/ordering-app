@@ -2,10 +2,10 @@ import React from 'react';
 import { configureStore } from '@reduxjs/toolkit';
 
 //import local files
-import rootReducer from '../Slices';
+import rootReducer from '../Reducer/';
 
 const store = configureStore({
-  reducer: rootReducer
+	reducer: rootReducer,
 });
 
 export default store;

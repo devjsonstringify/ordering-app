@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 //import local files
-import { addToCart } from '../../Ducks/Slices/CartSlice.js';
-import { cartSelector } from '../../Ducks/Slices/CartSlice.js';
+import { addToCart } from '../../Ducks/Features/CartSlice.js';
+import { cartSelector } from '../../Ducks/Features/CartSlice.js';
 
 export default function SideBar() {
 	//local state

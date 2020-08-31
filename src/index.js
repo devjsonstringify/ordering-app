@@ -9,9 +9,9 @@ import App from './App';
 import store from './Ducks/Store';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById('root')
 );
 serviceWorker.unregister();

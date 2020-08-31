@@ -10,7 +10,7 @@ import Shop from './../../Assets/images/shop.png';
 import Dashboard from './../../Assets/images/dashboard.jpg';
 import Bills from './../../Assets/images/bills.jpg';
 
-import { toggleSideBar } from '../../Ducks/Slices/SideBar.js';
+import { toggleSideBar } from '../../Ducks/Features/SideBar.js';
 
 export default function Navigation() {
 	const dispatch = useDispatch();

@@ -1,6 +1,7 @@
 // import react library
 import React from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 //import local files
 import style from './index.module.scss';
@@ -29,3 +30,7 @@ export default function Layout({ children }) {
 		</div>
 	);
 }
+
+Layout.propsTypes = {
+	children: PropTypes.any,
+};

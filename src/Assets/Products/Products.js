@@ -2,31 +2,36 @@ const Products = [
 	{
 		id: 0,
 		category: 'all',
-		thumbnail: 'SIDE',
 		show: true,
 	},
 	{
 		id: 1,
-		category: 'Burger',
-		thumbnail: 'BUR-MEA',
+		category: 'burger',
 		show: false,
 	},
 	{
 		id: 2,
-		category: 'Meal',
-		thumbnail: 'MEA',
+		category: 'pizza',
 		show: false,
 	},
 	{
 		id: 3,
-		category: 'Kebab',
-		thumbnail: 'KEB-MEA',
+		category: 'snacks',
 		show: false,
 	},
 	{
 		id: 4,
-		category: 'Side',
-		thumbnail: 'SIDE',
+		category: 'softdrinks',
+		show: false,
+	},
+	{
+		id: 5,
+		category: 'coffee',
+		show: false,
+	},
+	{
+		id: 7,
+		category: 'ice-cream',
 		show: false,
 	},
 ];

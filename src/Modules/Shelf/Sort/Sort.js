@@ -7,20 +7,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import SelectBox from '../SelectBox';
 
 //state management files
-import { updateSort } from '../../../Ducks/Slices/SortSlice.js';
+import { updateSort } from '../../../Ducks/Features/SortSlice.js';
 
 // sort product price based on price
 const sortBy = [
 	{ value: '', label: 'Select' },
-	{ value: 'lowestprice', label: 'Lowest to highest' },
-	{ value: 'highestprice', label: 'Highest to lowest' },
+	{ value: 'LOWEST_PRICE', label: 'Lowest to highest' },
+	{ value: 'HIGHEST_PRICE', label: 'Highest to lowest' },
 ];
 
 export default function Sort() {
-	// variable declaration
 	const dispatch = useDispatch();
-	const sort = useSelector((state) => state.sort.type);
-
 	return (
 		<div className='sort'>
 			Sort by
@@ -34,5 +31,5 @@ export default function Sort() {
 
 Sort.protoTypes = {
 	updateSort: PropTypes.func.isRequired,
-	sort: PropTypes.string.isRequired,
+	dispatch: PropTypes.func,
 };

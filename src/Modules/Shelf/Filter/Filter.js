@@ -12,7 +12,7 @@ export default function Filter() {
 }
 
 Filter.propTypes = {
-	availableCategories: PropTypes.object,
+	availableCategories: PropTypes.array,
 };
 
 // * inspiration of how to manipulate data based on requirements stackoverflow https://stackoverflow.com/questions/39966125/using-indexof-to-filter-an-array

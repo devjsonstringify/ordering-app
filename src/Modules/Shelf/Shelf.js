@@ -7,39 +7,44 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductList from './ProductList/';
 import Spinner from '../../Components/Spinner';
 import Layout from '../../Components/Layout/Layout';
-import ShelfHeader from './ShellHeader';
 import Filter from './Filter';
+import { selectQuery } from '../../Ducks/Selectors/selectQuery.js';
 
 // state management files
 import {
 	fetchProducts,
 	productsSelector,
-} from '../../Ducks/Slices/ProductsSlice.js';
-import { sortSelector } from '../../Ducks/Slices/SortSlice.js';
-// import { filterSelector } from '../../Ducks/Slices/FilterSlice.js';
+} from '../../Ducks/Features/ProductsSlice.js';
+import SearchProduct from './SearchProduct';
 
 function Shelf() {
-	// variables declaration
-	const { products, loading, hasErrors } = useSelector(productsSelector);
-	const sortProducts = useSelector(sortSelector);
-	const filterProducts = useSelector((state) => state.filter.items);
+	const { products: reduxProducts, loading, hasErrors } = useSelector(
+		productsSelector
+	);
 	const dispatch = useDispatch();
+	const products = useSelector((state) => selectQuery(state));
 
 	useEffect(() => {
-		dispatch(fetchProducts(filterProducts, sortProducts));
-	}, [dispatch, filterProducts, sortProducts]);
+		if (loading === 'idle') {
+			dispatch(fetchProducts());
+		}
+	}, [dispatch, loading, reduxProducts]);
 
-	return (
-		<Layout>
-			{loading && <Spinner />}
-			{hasErrors && <p>Something is wrong...</p>}
-			<div className='shelf-container py-5'>
+	let content;
+	if (loading === 'loading') {
+		content = <Spinner />;
+	} else if (loading === 'succeded') {
+		return (content = (
+			<Layout>
+				<SearchProduct />
 				<Filter />
-				<ShelfHeader productsLength={products.length} />
-				<ProductList products={products} />
-			</div>
-		</Layout>
-	);
+				<ProductList products={products} />;
+			</Layout>
+		));
+	} else if (loading === 'failed') {
+		content = <p>{hasErrors}</p>;
+	}
+	return <>{content}</>;
 }
 
 export default {
@@ -54,13 +59,6 @@ export default {
 Shelf.propTypes = {
 	loading: PropTypes.string,
 	hasErrors: PropTypes.bool,
-	products: PropTypes.shape({
-		name: PropTypes.string.isRequired,
-		descripition: PropTypes.string.isRequired,
-		price: PropTypes.number.isRequired,
-		category: PropTypes.string.isRequired,
-		sku: PropTypes.string.isRequired,
-	}),
+	products: PropTypes.array,
 	dispatch: PropTypes.func,
-	sortProducts: PropTypes.string,
 };
