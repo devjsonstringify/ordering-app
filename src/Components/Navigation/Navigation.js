@@ -1,5 +1,5 @@
 // import react library
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 
@@ -10,9 +10,10 @@ import Shop from './../../Assets/images/shop.png';
 import Dashboard from './../../Assets/images/dashboard.jpg';
 import Bills from './../../Assets/images/bills.jpg';
 
-import { toggleSideBar } from '../../Ducks/Features/SideBar.js';
+import { showCart } from '../../Ducks/Features/CartSlice.js';
 
 export default function Navigation() {
+	const [isOpen, setOpen] = useState(false);
 	const dispatch = useDispatch();
 	return (
 		<>
@@ -44,7 +45,8 @@ export default function Navigation() {
 							type='button'
 							className='btn btn-light bg-transparent border-0'
 							onClick={() => {
-								dispatch(toggleSideBar());
+								setOpen(!isOpen);
+								dispatch(showCart(isOpen));
 							}}>
 							<img src={Bills} alt='Cart' />
 							<p>Cart</p>

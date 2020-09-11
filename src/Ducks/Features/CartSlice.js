@@ -1,18 +1,28 @@
 // import react library
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { find } from 'lodash/find';
 
-const initialState = {
-	products: [],
-};
+export const cartAdapter = createEntityAdapter();
 
 const CartSlice = createSlice({
 	name: 'cart',
-	initialState,
+	initialState: cartAdapter.getInitialState(),
 	reducers: {
-		addToCart: (state, action) => ( state => initialState)
+		addToCart: cartAdapter.addOne,
+		updateCart: cartAdapter.updateOne,
+		deleteCart: (state, action) => {
+			cartAdapter.removeOne(state, action.payload);
+		},
 	},
 });
 
 export const cartSelector = (state) => state.products;
-export const { addToCart, loadCart } = CartSlice.actions;
+export const {
+	addToCart,
+	updateCart,
+	deleteCart,
+	showCart,
+} = CartSlice.actions;
 export default CartSlice.reducer;
+
+export const cartList = cartAdapter.getSelectors((state) => state.cart);

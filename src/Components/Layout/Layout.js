@@ -1,6 +1,6 @@
 // import react library
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 //import local files
@@ -9,9 +9,14 @@ import Navigation from '../Navigation/Navigation';
 import Main from '../Main/Main';
 import Sidebar from '../Sidebar';
 
+// state management
+import { showCart } from '../../Ducks/Features/CartSlice.js';
+import { isOpen } from '../../Ducks/Selectors/selectCart.js';
+
 export default function Layout({ children }) {
 	// Toggle sidebar cart
-	const showSidebar = useSelector((state) => state.sideBar.show);
+	const floatCart = useSelector((state) => isOpen(state));
+	const dispatch = useDispatch();
 	return (
 		<div className='container-fluid p-0 '>
 			<div className={`d-flex align-items-stretch ${style.layout}`}>
@@ -21,11 +26,9 @@ export default function Layout({ children }) {
 				<div className={`${style.main} container`}>
 					<Main>{children}</Main>
 				</div>
-				{showSidebar && (
-					<div className={`${style.sidebar}`}>
-						<Sidebar />
-					</div>
-				)}
+				<div className={`${style.sidebar}`}>
+					<Sidebar />
+				</div>
 			</div>
 		</div>
 	);

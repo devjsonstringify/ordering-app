@@ -1,18 +1,43 @@
 // import react library
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // import local files
 import style from './index.module.scss';
 
 //state management
-import { addToCart } from '../../../../Ducks/Features/CartSlice.js';
+import {
+	addToCart,
+	updateCart,
+	cartList,
+} from '../../../../Ducks/Features/CartSlice.js';
 
 export default function Product({ products }) {
-	//add quantity on the item
-	let quantity = 1;
-	const addItemToCart = { ...products, quantity };
+	const [quantity, setQuantity] = useState(1);
+	const productId = products.id;
+	const productsArray = useSelector((state) => cartList.selectAll(state));
+
+	const addProductToCart = (item) => {
+		const addItemToCart = {
+			...item,
+			id: item.id,
+			quantity,
+		};
+		let idAlreadyExists = productsArray.find(
+			(product) => product.id == productId
+		);
+
+		if (!idAlreadyExists) dispatch(addToCart(addItemToCart));
+		setQuantity(quantity + 1);
+		dispatch(
+			updateCart({
+				id: addItemToCart.id,
+				changes: { quantity },
+			})
+		);
+	};
+
 	const dispatch = useDispatch();
 
 	return (
@@ -32,8 +57,10 @@ export default function Product({ products }) {
 				<button
 					type='button'
 					className='btn btn-dark'
-					onClick={() => dispatch(addToCart(addItemToCart))}>
-					Add to cart
+					onClick={() => {
+						addProductToCart(products);
+					}}>
+					Add to cart <span>{productId}</span>
 				</button>
 			</div>
 		</div>
