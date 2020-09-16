@@ -1,12 +1,13 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // import file
-import CartList from './CartList.js';
+import Product from './CartProduct';
 // state  management
-import store from '../../Ducks/Store/';
-import { cartAdapter, cartList } from '../../Ducks/Features/CartSlice.js';
+import { cart } from '../../Ducks/Features/CartSlice.js';
 export default function Cart() {
-	const products = useSelector((state) => cartList.selectAll(state));
-	return <CartList carts={products} />;
+	const productsOnCart = useSelector((state) => cart.selectAll(state));
+	return productsOnCart.map((product) => (
+		<Product product={product} key={product.id} />
+	));
 }
