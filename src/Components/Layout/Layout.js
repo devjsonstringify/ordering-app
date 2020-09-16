@@ -1,5 +1,5 @@
 // import react library
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -8,17 +8,20 @@ import style from './index.module.scss';
 import Navigation from '../Navigation/Navigation';
 import Main from '../Main/Main';
 import Sidebar from '../Sidebar';
+import FloatCart from '../FloatCart';
 
 // state management
-import { showCart } from '../../Ducks/Features/CartSlice.js';
-import { isOpen } from '../../Ducks/Selectors/selectCart.js';
+import { cart } from '../../Ducks/Features/CartSlice.js';
 
 export default function Layout({ children }) {
 	// Toggle sidebar cart
-	const floatCart = useSelector((state) => isOpen(state));
+	// const floatCart = useSelector((state) => isOpen(state));
+	const isOpen = useSelector((state) => state.cart.isOpen);
+	const products = useSelector((state) => cart.selectAll(state));
 	const dispatch = useDispatch();
+
 	return (
-		<div className='container-fluid p-0 '>
+		<div className='container-fluid p-0'>
 			<div className={`d-flex align-items-stretch ${style.layout}`}>
 				<div className={` ${style.nav}`}>
 					<Navigation />
@@ -26,14 +29,12 @@ export default function Layout({ children }) {
 				<div className={`${style.main} container`}>
 					<Main>{children}</Main>
 				</div>
-				<div className={`${style.sidebar}`}>
-					<Sidebar />
-				</div>
 			</div>
+			<FloatCart />
 		</div>
 	);
 }
 
 Layout.propsTypes = {
-	children: PropTypes.any,
+	children: PropTypes.element,
 };

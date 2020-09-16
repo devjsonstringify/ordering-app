@@ -1,6 +1,6 @@
 // import react library
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 
 //import local files
@@ -10,11 +10,18 @@ import Shop from './../../Assets/images/shop.png';
 import Dashboard from './../../Assets/images/dashboard.jpg';
 import Bills from './../../Assets/images/bills.jpg';
 
-import { showCart } from '../../Ducks/Features/CartSlice.js';
+// state management
+import { cartIsOpen, cartSelector } from '../../Ducks/Features/CartSlice.js';
 
 export default function Navigation() {
-	const [isOpen, setOpen] = useState(false);
 	const dispatch = useDispatch();
+	const cart = useSelector((state) => state.cart.isOpen);
+	const [isOpen, setOpen] = useState(null);
+
+	useEffect(() => {
+		setOpen(cart);
+	}, [cart]);
+
 	return (
 		<>
 			<nav className='navbar navbar-light bg-transparent h-25'>
@@ -45,8 +52,8 @@ export default function Navigation() {
 							type='button'
 							className='btn btn-light bg-transparent border-0'
 							onClick={() => {
-								setOpen(!isOpen);
-								dispatch(showCart(isOpen));
+								setOpen(isOpen);
+								dispatch(cartIsOpen(isOpen));
 							}}>
 							<img src={Bills} alt='Cart' />
 							<p>Cart</p>
