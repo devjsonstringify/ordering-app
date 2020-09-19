@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 // import files
 import {
 	cart,
@@ -7,88 +8,81 @@ import {
 	deleteCart,
 } from '../../../Ducks/Features/CartSlice.js';
 import useHover from '../../../Utilities/useHover.js';
-import Thumb from '../../Thumb/Thumb.js';
+import Card from '../../../Components/Card';
+import Quantity from './../Quantiy';
+import QuantityTotal from './QuantityTotal.js';
 
 export default function Product({ product }) {
-	const { id, name, price, sku, quantity } = product;
+	const { id, price, sku, quantity } = product;
 	const cartId = useSelector((state) => cart.selectById(state, id));
 	const dispatch = useDispatch();
 	let minimumProduct = cartId.quantity < 2 ? true : false;
 	let calculateAmount = quantity * price;
 	const [hoverRef, isHovered] = useHover();
 
+	const handleDecrementQuantity = (product, cartId) => {
+		const { id, price } = product;
+		dispatch(
+			updateCart({
+				id,
+				changes: {
+					quantity: cartId.quantity - 1,
+					total: cartId.quantity * price - price,
+				},
+			})
+		);
+	};
+
+	const handleIncrementQuantity = (product, cartId) => {
+		const { id, price } = product;
+		dispatch(
+			updateCart({
+				id,
+				changes: {
+					quantity: cartId.quantity + 1,
+					total: cartId.quantity * price + price,
+				},
+			})
+		);
+	};
+
 	return (
-		<div className='container align-items-center d-flex'>
+		<div className='container cart-item py-3'>
 			<button
 				type='button'
 				className='btn btn-link p-0'
 				onClick={() => dispatch(deleteCart(id))}>
 				<span className='badge bg-dark'>x</span>
 			</button>
-			<div className='row align-items-center '>
-				<Thumb
-					classes='col-2'
-					src={require(`../../../Assets/Products/${sku}.png`)}
-					alt={name}
-					title={name}
+			<div className='cart-item-details container d-flex align-items-baseline'>
+				<Card
+					rowPos='flex-fill d-flex justify-content-evenly'
+					shape='square'
+					size='small'
+					{...product}
 				/>
-				<div className='col-2'>
-					<ul className='list-group list-group-flush'>
-						<li className='list-group-item text-capitalize'>{name}</li>
-						<li className='list-group-item text-capitalize'>{price}</li>
-					</ul>
-				</div>
-				<div className='col-7'>
-					<ul className='list-group list-group-flush flex-row'>
-						<li className='list-group-item text-capitalize border border-white flex-row'>
-							<div className='d-flex'>
-								<button
-									disabled={minimumProduct}
-									type='button'
-									onClick={() =>
-										dispatch(
-											updateCart({
-												id,
-												changes: {
-													quantity: cartId.quantity - 1,
-													total:
-														cartId.quantity * product.price - product.price,
-												},
-											})
-										)
-									}>
-									<span className='text-secondary'>-</span>
-								</button>
-								<span className='badge rounded-pill bg-light text-dark'>
-									x{quantity}
-								</span>
-								<button
-									type='button'
-									onClick={() =>
-										dispatch(
-											updateCart({
-												id,
-												changes: {
-													quantity: cartId.quantity + 1,
-													total:
-														cartId.quantity * product.price + product.price,
-												},
-											})
-										)
-									}>
-									<span className='text-secondary'>+</span>
-								</button>
-							</div>
-						</li>
-						<li className='list-group-item text-capitalize border border-white'>
-							<p>
-								<strong>$</strong>
-								{calculateAmount.toFixed(2)}
-							</p>
-						</li>
-					</ul>
-				</div>
+				<Quantity
+					handleDecrementQuantity={() =>
+						handleDecrementQuantity(product, cartId)
+					}
+					handleIncrementQuantity={() =>
+						handleIncrementQuantity(product, cartId)
+					}
+					minimumProduct={minimumProduct}
+					quantity={quantity}
+					classes='flex-fill'
+				/>
+				<QuantityTotal classes='flex-fill' amount={calculateAmount} />
 			</div>
 		</div>
 	);
 }
+Product.propTypes = {
+	product: PropTypes.shape({
+		id: PropTypes.number,
+		name: PropTypes.string,
+		price: PropTypes.number,
+		sku: PropTypes.string,
+		quantity: PropTypes.number,
+	}),
+};

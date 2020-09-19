@@ -1,9 +1,11 @@
+$background-body: #fafafa;
+
 html,
 body {
-  height: 100%;
-  background-color: #ffffff ;
+	height: 100%;
+	background-color: $background-body;
 }
 
 * {
-  color: #bcc2d0;
+	color: #bcc2d0;
 }

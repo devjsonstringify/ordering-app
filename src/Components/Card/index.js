@@ -1,2 +1,2 @@
-import { Cards } from './Cards.js';
-export { Cards };
+import Card from './Card.js';
+export default Card;

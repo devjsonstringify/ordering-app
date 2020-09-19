@@ -1,19 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Thumb = (props) => {
+// import local file
+import style from './index.module.scss';
+
+const Thumb = ({
+	name,
+	sku,
+	size = '' || 'small',
+	shape = 'circle' || 'square',
+}) => {
 	return (
-		<div className={props.classes}>
-			<img src={props.src} alt={props.alt} title={props.title} />
+		<div className={`${style.photoPlaceholder} ${style[size]} ${style[shape]}`}>
+			<img
+				src={require(`../../Assets/Products/${sku}.png`)}
+				alt={name}
+				title={name}
+			/>
 		</div>
 	);
 };
-
 Thumb.propTypes = {
-	alt: PropTypes.string,
-	title: PropTypes.string,
-	classes: PropTypes.string,
-	src: PropTypes.string.isRequired,
+	sku: PropTypes.string,
 };
 
 export default Thumb;

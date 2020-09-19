@@ -1,34 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+// import local file
+import Thumb from './../Thumb';
+import ProductDetail from './ProductDetail';
 
-//import local files
-import style from './index.module.scss';
-
-export function Card({ data, cardClicked }) {
-	const [toggleAddToCart, setToggleAddToCart] = useState(false);
+export default function Card(props) {
+	let rowPosition = [];
+	rowPosition.push(props.rowPos);
 	return (
-		<div
-			className={`col rounded ${style.col}`}
-			onMouseEnter={() => setToggleAddToCart(true)}
-			onMouseLeave={() => setToggleAddToCart(false)}
-			data-sku={data.sku}>
-			<div className='card p-4'>
-				<img
-					className={`text-center ${style.img}`}
-					src={require(`../../Assets/images/Foods/${data.sku}.png`)}
-					alt='name'></img>
-				<div className='card-body text-primary text-center'>
-					<h5 className='card-title text-dark'>{data.name}</h5>
-					<p className='card-text'>${data.price}</p>
-				</div>
-				{toggleAddToCart && (
-					<button
-						type='button'
-						className='btn btn-primary'
-						onClick={cardClicked}>
-						Add to cart
-					</button>
-				)}
-			</div>
+		<div className={rowPosition.join(' ')}>
+			<Thumb {...props} />
+			<ProductDetail {...props} />
+			{props.children}
 		</div>
 	);
 }
+
+Card.propTypes = {
+	props: PropTypes.shape({
+		id: PropTypes.number,
+		name: PropTypes.string,
+		category: PropTypes.string,
+		price: PropTypes.number,
+	}),
+};

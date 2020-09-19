@@ -7,5 +7,5 @@ export default function Main({ children }) {
 }
 
 Main.propsTypes = {
-	children: PropTypes.any,
+	children: PropTypes.elements,
 };

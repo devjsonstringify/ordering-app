@@ -1,9 +1,6 @@
-.img {
-  width: 64px;
-  height: 64px;
-  margin: auto;
-}
+$base-color: #202020;
 
-.col {
-cursor: pointer;
+.name {
+	color: $base-color;
+	text-transform: capitalize;
 }

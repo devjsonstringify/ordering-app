@@ -1,9 +1,8 @@
-.img {
-  width: 64px;
-  height: 64px;
-  margin: auto;
-}
+$base-color: #ffffff;
 
-.col {
-cursor: pointer;
+.product {
+	border-radius: 19px;
+	background-color: $base-color;
+	width: 23%;
+	margin: 1%;
 }

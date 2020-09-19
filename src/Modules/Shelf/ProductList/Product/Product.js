@@ -6,7 +6,7 @@ import { isUndefined } from 'lodash';
 
 // import local files
 import style from './index.module.scss';
-import util from '../../../../Utilities/util.js';
+import Card from '../../../../Components/Card';
 
 //state management
 import {
@@ -15,6 +15,7 @@ import {
 	cart,
 	cartIsOpen,
 } from '../../../../Ducks/Features/CartSlice.js';
+import Button from '../../../../Components/Button';
 
 export default function Product({ products }) {
 	const { id } = products;
@@ -53,11 +54,39 @@ export default function Product({ products }) {
 	};
 
 	return (
-		<div
-			className={`col rounded ${style.col}`}
-			key={id}
-			data-sku={products.sku}>
-			<div className='card p-4'>
+		<div key={id} className={`${style.product} p-4`}>
+			<Card
+				rowPos=' d-flex flex-column justify-content-center align-items-center'
+				shape='circle'
+				size='medium'
+				{...products}>
+				<Button
+					handleClick={() => {
+						addItemToCart(products);
+					}}>
+					{' '}
+					add to cart
+				</Button>
+			</Card>
+		</div>
+	);
+}
+
+Product.propTypes = {
+	product: PropTypes.shape({
+		id: PropTypes.number,
+		category: PropTypes.string,
+		description: PropTypes.string,
+		name: PropTypes.string,
+		price: PropTypes.number,
+		published: PropTypes.number,
+		quantity: PropTypes.number,
+		sku: PropTypes.string,
+	}),
+};
+
+{
+	/* <div className='card p-4'>
 				<img
 					className={`text-center ${style.img}`}
 					src={require(`../../../../Assets/Products/${products.sku}.png`)}
@@ -75,19 +104,5 @@ export default function Product({ products }) {
 					Add to cart
 				</button>
 			</div>
-		</div>
-	);
+		</div> */
 }
-
-Product.propTypes = {
-	product: PropTypes.shape({
-		id: PropTypes.number,
-		category: PropTypes.string,
-		description: PropTypes.string,
-		name: PropTypes.string,
-		price: PropTypes.number,
-		published: PropTypes.number,
-		quantity: PropTypes.number,
-		sku: PropTypes.string,
-	}),
-};

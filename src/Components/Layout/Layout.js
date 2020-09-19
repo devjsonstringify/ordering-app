@@ -30,7 +30,7 @@ export default function Layout({ children }) {
 					<Main>{children}</Main>
 				</div>
 			</div>
-			<FloatCart />
+			{/* <FloatCart /> */}
 		</div>
 	);
 }
