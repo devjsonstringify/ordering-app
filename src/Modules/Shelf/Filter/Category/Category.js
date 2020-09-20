@@ -1,30 +1,26 @@
 // import react library
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 import PropTypes from 'prop-types';
 // import local files
 import './index.module.scss';
-import { setVisibilityFilter } from './../../../../Ducks/Features/FilterSlice.js';
+import Thumb from '../../../../Components/Thumb/Thumb';
+import Button from '../../../../Components/Button/Button';
 
-export default function Category({ filter, category }) {
-	const dispatch = useDispatch();
+export default function Category(props) {
+	let newProps = props.visibility.slice(5);
 	return (
-		<button
-			type='button'
-			className={`col m-1 border border-light rounded-lg pt-3 pb-3 `}
-			onClick={(e) => {
-				e.preventDefault;
-				dispatch(setVisibilityFilter(filter));
-			}}>
-			<div className='border border-light d-flex justify-content-center rounded py-4'>
-				<img
-					className='img-thumbnail p-1'
-					src={require(`../../../../Assets/Icons/${category}.png`)}
-					alt={category}
-				/>
-			</div>
-			<h5 className='text-center'>{category}</h5>
-		</button>
+		<Button {...props}>
+			<Thumb
+				thumbnail={require(`../../../../Assets/Icons/${newProps.toLowerCase()}.png`)}
+			/>
+			<h5
+				className={`text-center border ${
+					props.btn.slice(5) === newProps ? 'active' : ' '
+				}`}>
+				{newProps}
+			</h5>
+		</Button>
 	);
 }
 Category.prototype = {

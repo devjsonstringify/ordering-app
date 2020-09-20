@@ -1,27 +1,43 @@
 // import react library
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // import local files
 import { VisibilityFilters } from '../../../../Ducks/Features/FilterSlice.js';
+import { setVisibilityFilter } from './../../../../Ducks/Features/FilterSlice.js';
 import Category from './../Category';
 export default function CategoriesList() {
+	const [products] = useState(
+		Object.entries(VisibilityFilters)
+			.map(([visibility]) => ({
+				visibility,
+			}))
+			.map((obj) => ({
+				...obj,
+				active: false,
+			}))
+	);
+	const [isActive, setIsActive] = useState('ALL');
+	const dispatch = useDispatch();
+
 	return (
 		<div className='container-fluid'>
 			<div className='row'>
-				<Category filter={VisibilityFilters.SHOW_ALL} category='hot' />
-				<Category filter={VisibilityFilters.SHOW_BURGER} category='burger' />
-				<Category filter={VisibilityFilters.SHOW_PIZZA} category='pizza' />
-				<Category filter={VisibilityFilters.SHOW_SNACKS} category='snacks' />
-				<Category
-					filter={VisibilityFilters.SHOW_SOFTDRINKS}
-					category='softdrinks'
-				/>
-				<Category filter={VisibilityFilters.SHOW_COFFEE} category='coffee' />
-				<Category
-					filter={VisibilityFilters.SHOW_ICECREAM}
-					category='ice-cream'
-				/>
+				{products.map((item) => {
+					return (
+						<Category
+							key={item.visibility}
+							{...item}
+							handleClick={(e) => {
+								e.preventDefault;
+								setIsActive(item.visibility);
+								dispatch(setVisibilityFilter(item.visibility));
+							}}
+							btn={isActive}
+						/>
+					);
+				})}
 			</div>
 		</div>
 	);
@@ -30,3 +46,7 @@ export default function CategoriesList() {
 CategoriesList.prototype = {
 	VisibilityFilters: PropTypes.object.isRequired,
 };
+
+// Credits: Below are the links helps me with this specific scenario
+// https://stackoverflow.com/questions/55518798/how-to-add-active-class-to-clicked-item-in-reactjs
+// https://stackoverflow.com/questions/38922998/add-property-to-an-array-of-objects

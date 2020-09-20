@@ -8,7 +8,7 @@ export default function Button({
 	disabled,
 	children,
 }) {
-	let classes = ['btn']; // default class is btn
+	let classes = ['btn'];
 	classes.push(style);
 	return (
 		<button

@@ -7,6 +7,7 @@ import { isUndefined } from 'lodash';
 // import local files
 import style from './index.module.scss';
 import Card from '../../../../Components/Card';
+import Button from '../../../../Components/Button';
 
 //state management
 import {
@@ -15,14 +16,12 @@ import {
 	cart,
 	cartIsOpen,
 } from '../../../../Ducks/Features/CartSlice.js';
-import Button from '../../../../Components/Button';
 
 export default function Product({ products }) {
 	const { id } = products;
 	const isOpen = useSelector((state) => state.cart.isOpen);
 	const cartProductsList = useSelector((state) => cart.selectAll(state));
 	const getProductOnCart = useSelector((state) => cart.selectById(state, id));
-
 	const dispatch = useDispatch();
 
 	const addItemToCart = () => {
@@ -59,13 +58,13 @@ export default function Product({ products }) {
 				rowPos=' d-flex flex-column justify-content-center align-items-center'
 				shape='circle'
 				size='medium'
+				thumbnail={require(`../../../../Assets/Products/${products.sku}.png`)}
 				{...products}>
 				<Button
 					handleClick={() => {
 						addItemToCart(products);
 					}}>
-					{' '}
-					add to cart
+					<span>add to cart</span>
 				</Button>
 			</Card>
 		</div>

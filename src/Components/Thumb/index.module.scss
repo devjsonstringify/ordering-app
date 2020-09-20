@@ -20,9 +20,17 @@ $base-color: #fdf3da;
 	}
 	&.square {
 		background-color: $base-color;
-		border-radius: 15%;
-		padding: 12%;
+		border-radius: 19%;
+		padding: 2%;
 		box-sizing: border-box;
+		min-width: 100px;
+
+		& > img {
+			margin: auto;
+			max-width: 40px;
+			height: auto;
+			width: 100%;
+		}
 	}
 
 	& > img {

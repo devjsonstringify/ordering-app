@@ -7,6 +7,7 @@ import ProductDetail from './ProductDetail';
 export default function Card(props) {
 	let rowPosition = [];
 	rowPosition.push(props.rowPos);
+
 	return (
 		<div className={rowPosition.join(' ')}>
 			<Thumb {...props} />

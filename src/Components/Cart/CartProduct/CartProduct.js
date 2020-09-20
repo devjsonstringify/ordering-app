@@ -47,7 +47,7 @@ export default function Product({ product }) {
 	};
 
 	return (
-		<div className='container cart-item py-3'>
+		<div className='container cart-item pb-1'>
 			<button
 				type='button'
 				className='btn btn-link p-0'
@@ -59,6 +59,7 @@ export default function Product({ product }) {
 					rowPos='flex-fill d-flex justify-content-evenly'
 					shape='square'
 					size='small'
+					thumbnail={require(`../../../Assets/Products/${sku}.png`)}
 					{...product}
 				/>
 				<Quantity
