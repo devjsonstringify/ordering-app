@@ -9,7 +9,10 @@ import { getProductQuery } from '../../../Ducks/Features/SearchSlice';
 export default function SearchProduct() {
 	const dispatch = useDispatch();
 	return (
-		<Header strong='Menu' regular='Category'>
+		<Header
+			strong='Menu'
+			regular='Category'
+			classes='search align-items-center'>
 			<div className={`input-group mb-3 ${style.search}`}>
 				<span className='input-group-text '>&#128270;</span>
 				<input

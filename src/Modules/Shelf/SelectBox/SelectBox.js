@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // import local file
 import style from './index.module.scss';
 export default function SelectBox({ options, handleOnChange }) {
-	console.log(options);
 	const createOptions = (options) =>
 		options.map((o) => (
 			<option value={o.value} key={o.value}>

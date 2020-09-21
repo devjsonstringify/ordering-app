@@ -8,7 +8,7 @@ import Header from '../../../Components/Header';
 
 export default function ShellHeader({ quantity }) {
 	return (
-		<Header strong='Choose' regular='Order'>
+		<Header strong='Choose' regular='Order' classes='sortBy align-items-center'>
 			<Sort />
 		</Header>
 	);

@@ -10,12 +10,10 @@ export default function ProductList({ products }) {
 	return (
 		<>
 			<ShellHeader quantity={products.length} />
-			<div className='container-fluid'>
-				<div className='d-flex flex-wrap'>
-					{products.map((product) => (
-						<Product key={Math.random()} products={product} />
-					))}
-				</div>
+			<div className='products d-flex flex-wrap'>
+				{products.map((product) => (
+					<Product key={Math.random()} products={product} />
+				))}
 			</div>
 		</>
 	);

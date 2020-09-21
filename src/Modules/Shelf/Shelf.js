@@ -9,13 +9,13 @@ import Spinner from '../../Components/Spinner';
 import Layout from '../../Components/Layout/Layout';
 import Filter from './Filter';
 import { selectQuery } from '../../Ducks/Selectors/selectQuery.js';
+import SearchProduct from './SearchProduct';
 
 // state management files
 import {
 	fetchProducts,
 	productsSelector,
 } from '../../Ducks/Features/ProductsSlice.js';
-import SearchProduct from './SearchProduct';
 
 function Shelf() {
 	const { products: reduxProducts, loading, hasErrors } = useSelector(

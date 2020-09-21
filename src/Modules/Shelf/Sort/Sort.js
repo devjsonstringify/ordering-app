@@ -19,7 +19,7 @@ const sortBy = [
 export default function Sort() {
 	const dispatch = useDispatch();
 	return (
-		<div className='sort d-flex align-items-center'>
+		<div className='d-flex align-items-center'>
 			<h5>Sort by</h5>
 			<SelectBox
 				options={sortBy}
