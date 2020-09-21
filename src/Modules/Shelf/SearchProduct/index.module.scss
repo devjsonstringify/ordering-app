@@ -1,0 +1,15 @@
+$base-color-bg: #ffffff;
+.search {
+	border-radius: 22px;
+	margin-top: 5%;
+	padding: 8px;
+	background-color: $base-color-bg;
+	& > span {
+		border: none;
+		background-color: $base-color-bg;
+	}
+	input {
+		background-color: $base-color-bg;
+		border: none;
+	}
+}
