@@ -1,4 +1,6 @@
 $base-color-bg: #ffffff;
+$base-color-text: #bcc2d0;
+
 .search {
 	border-radius: 22px;
 	background-color: $base-color-bg;
@@ -9,5 +11,9 @@ $base-color-bg: #ffffff;
 	input {
 		background-color: $base-color-bg;
 		border: none;
+		&::placeholder {
+			color: $base-color-text;
+			opacity: 1;
+		}
 	}
 }
