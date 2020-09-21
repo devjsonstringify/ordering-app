@@ -6,8 +6,15 @@ import style from './index.module.scss';
 
 const Thumb = ({ name, thumbnail, size = '', shape = '' }) => {
 	return (
-		<div className={`${style.photoPlaceholder} ${style[size]} ${style[shape]}`}>
-			{thumbnail && <img src={thumbnail} alt={name} title={name} />}
+		<div className={`${style.photoPlaceholder}  ${style[shape]}`}>
+			{thumbnail && (
+				<img
+					className={`${style.photo} ${style[size]}`}
+					src={thumbnail}
+					alt={name}
+					title={name}
+				/>
+			)}
 		</div>
 	);
 };

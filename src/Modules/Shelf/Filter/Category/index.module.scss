@@ -1,7 +1,19 @@
-$base-color: #bcc2d0;
+$base-color: #ffffff;
+$base-color-bg: #feda6c;
+$radius: 25px 25px 25px 25px;
+$base-color-border: #bcc2d0;
 
-img {
-	width: 50px;
-	height: 50px;
-	max-width: 100%;
+.item {
+	flex-basis: 12.5%;
+	background-color: $base-color;
+	border-radius: $radius;
+	cursor: pointer;
+	&__active {
+		background-color: $base-color-bg;
+	}
+
+	& > div {
+		border: 1px solid $base-color-border;
+		border-radius: $radius;
+	}
 }

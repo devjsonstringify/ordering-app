@@ -58,7 +58,7 @@ export default function Product({ product }) {
 				<Card
 					rowPos='flex-fill d-flex justify-content-evenly'
 					shape='square'
-					size='small'
+					size='xsmall'
 					thumbnail={require(`../../../Assets/Products/${sku}.png`)}
 					{...product}
 				/>

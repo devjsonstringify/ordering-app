@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // import local files
+import style from './index.module.scss';
 import { VisibilityFilters } from '../../../../Ducks/Features/FilterSlice.js';
 import { setVisibilityFilter } from './../../../../Ducks/Features/FilterSlice.js';
 import Category from './../Category';
@@ -23,7 +24,7 @@ export default function CategoriesList() {
 
 	return (
 		<div className='container-fluid'>
-			<div className='row'>
+			<div className={`d-flex flex-wrap justify-content-between`}>
 				{products.map((item) => {
 					return (
 						<Category
