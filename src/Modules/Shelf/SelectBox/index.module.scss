@@ -1,6 +1,10 @@
+$base-color: #000000;
 .search {
 	&:focus {
 		border: 0;
 	}
 	outline: 0;
+	color: $base-color;
+	font-size: 1.25rem;
+	font-weight: 700;
 }

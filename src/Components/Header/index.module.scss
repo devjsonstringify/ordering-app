@@ -1,0 +1,11 @@
+$base-color-text: #000000;
+
+.header {
+	h3 {
+		color: $base-color-text;
+		font-weight: 700;
+		span {
+			font-weight: 400;
+		}
+	}
+}

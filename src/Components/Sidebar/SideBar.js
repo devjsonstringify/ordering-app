@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import FloatCart from '../FloatCart';
 
 //import local files
 import Cart from './../Cart';
@@ -9,8 +10,8 @@ export default function SideBar() {
 	const [isOpen, setOpen] = useState(false);
 
 	return (
-		<div className='container-fluid'>
-			<Cart />
+		<div className='side bar col-3 border'>
+			<FloatCart />
 		</div>
 	);
 }

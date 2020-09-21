@@ -12,6 +12,7 @@ import FloatCart from '../FloatCart';
 
 // state management
 import { cart } from '../../Ducks/Features/CartSlice.js';
+import SideBar from '../Sidebar';
 
 export default function Layout({ children }) {
 	// Toggle sidebar cart
@@ -21,16 +22,12 @@ export default function Layout({ children }) {
 	const dispatch = useDispatch();
 
 	return (
-		<div className='container-fluid p-0'>
-			<div className={`d-flex align-items-stretch ${style.layout}`}>
-				<div className={` ${style.nav}`}>
-					<Navigation />
-				</div>
-				<div className={`${style.main} container`}>
-					<Main>{children}</Main>
-				</div>
+		<div className='container-fluid h-100'>
+			<div className='row h-100'>
+				<Navigation />
+				<Main>{children}</Main>
+				<SideBar />
 			</div>
-			{/* <FloatCart /> */}
 		</div>
 	);
 }

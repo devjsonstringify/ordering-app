@@ -24,7 +24,7 @@ export default function CategoriesList() {
 
 	return (
 		<div
-			className={`product-categories d-flex flex-wrap justify-content-between`}>
+			className={`product-categories d-flex flex-wrap justify-content-between  mb-4`}>
 			{products.map((item) => {
 				return (
 					<Category
