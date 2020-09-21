@@ -11,16 +11,16 @@ import { updateSort } from '../../../Ducks/Features/SortSlice.js';
 
 // sort product price based on price
 const sortBy = [
-	{ value: '', label: 'Select' },
-	{ value: 'LOWEST_PRICE', label: 'Lowest to highest' },
-	{ value: 'HIGHEST_PRICE', label: 'Highest to lowest' },
+	{ value: '', label: '--select--' },
+	{ value: 'LOWEST_PRICE', label: 'Lowest' },
+	{ value: 'HIGHEST_PRICE', label: 'Highest' },
 ];
 
 export default function Sort() {
 	const dispatch = useDispatch();
 	return (
-		<div className='sort'>
-			Sort by
+		<div className='sort d-flex align-items-center'>
+			<h5>Sort by</h5>
 			<SelectBox
 				options={sortBy}
 				handleOnChange={(value) => dispatch(updateSort(value))}

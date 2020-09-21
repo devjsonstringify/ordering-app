@@ -2,7 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// import local file
+import style from './index.module.scss';
 export default function SelectBox({ options, handleOnChange }) {
+	console.log(options);
 	const createOptions = (options) =>
 		options.map((o) => (
 			<option value={o.value} key={o.value}>
@@ -11,7 +14,9 @@ export default function SelectBox({ options, handleOnChange }) {
 		));
 
 	return (
-		<select onChange={(e) => handleOnChange(e.target.value)}>
+		<select
+			className={`bg-transparent border-0 form-select-lg ${style.search}`}
+			onChange={(e) => handleOnChange(e.target.value)}>
 			{createOptions(options)}
 		</select>
 	);
