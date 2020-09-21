@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import FloatCart from '../FloatCart';
 
 //import local files
-import Cart from './../Cart';
 
 export default function SideBar() {
 	//local state

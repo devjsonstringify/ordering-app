@@ -2,8 +2,8 @@ import React from 'react';
 
 // import local file
 import style from './index.module.scss';
-import Cart from '../Cart';
-import Checkout from '../Checkout/Checkout';
+import Cart from './Cart';
+import Checkout from './Checkout';
 
 export default function FloatCart() {
 	return (
