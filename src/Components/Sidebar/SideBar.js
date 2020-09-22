@@ -24,11 +24,11 @@ export default function SideBar() {
 
 	return (
 		<div className={`col-3 container h-auto ${style.sideBar}`}>
-			<FloatCart />
+			<Header />
 			{productsOnCart.length > 0 ? (
 				<>
+					<FloatCart />
 					<Checkout />
-					<Header />
 				</>
 			) : (
 				'empty cart'
