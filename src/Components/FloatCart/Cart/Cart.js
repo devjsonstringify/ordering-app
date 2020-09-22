@@ -7,7 +7,11 @@ import Product from './CartProduct';
 import { cart } from '../../../Ducks/Features/CartSlice';
 export default function Cart() {
 	const productsOnCart = useSelector((state) => cart.selectAll(state));
-	return productsOnCart.map((product) => (
-		<Product product={product} key={product.id} />
-	));
+	return (
+		<div className='cart'>
+			{productsOnCart.map((product) => (
+				<Product product={product} key={product.id} />
+			))}
+		</div>
+	);
 }

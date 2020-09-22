@@ -1,11 +1,7 @@
 $base-color: #ffffff;
 
 .floatCart {
-	position: fixed;
-	top: 0;
-	right: 0px;
-	width: 500px;
-	height: 100%;
+	position: relative;
 	background-color: $base-color;
 	box-sizing: border-box;
 	-webkit-transition: right 0.2s;
