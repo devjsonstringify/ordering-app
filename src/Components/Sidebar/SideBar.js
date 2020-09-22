@@ -5,17 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import style from './index.module.scss';
 import FloatCart from '../FloatCart';
 import Checkout from '../FloatCart/Checkout';
+import CartHeader from '../FloatCart/CartHeader';
 
 // state management
 import { cart } from '../../Ducks/Features/CartSlice.js';
-
-const Header = () => {
-	return (
-		<div>
-			<h4>header</h4>
-		</div>
-	);
-};
 
 export default function SideBar() {
 	//local state
@@ -23,8 +16,8 @@ export default function SideBar() {
 	const productsOnCart = useSelector((state) => cart.selectAll(state));
 
 	return (
-		<div className={`col-3 container h-auto ${style.sideBar}`}>
-			<Header />
+		<div className={`col-3 container h-auto pt-5 ${style.sideBar}`}>
+			<CartHeader {...productsOnCart} />
 			{productsOnCart.length > 0 ? (
 				<>
 					<FloatCart />
