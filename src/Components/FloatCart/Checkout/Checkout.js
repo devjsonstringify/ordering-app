@@ -3,6 +3,7 @@ import React from 'react';
 //import local file
 import style from './index.module.scss';
 import Total from './Total.js';
+import Button from '../../Button';
 
 export default function Checkout() {
 	return (
@@ -22,12 +23,14 @@ export default function Checkout() {
 				</table>
 			</div>
 			<div className={`${style.cartTotal}`}>
-				<h5>
-					Charge
-					<span>
-						<Total />
-					</span>
-				</h5>
+				<Button style='w-100' handleClick={() => console.log('checkout...')}>
+					<h5>
+						Charge
+						<span>
+							<Total />
+						</span>
+					</h5>
+				</Button>
 			</div>
 		</div>
 	);
