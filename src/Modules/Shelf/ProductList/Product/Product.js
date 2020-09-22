@@ -1,5 +1,5 @@
 // import react library
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { isUndefined } from 'lodash';
@@ -8,6 +8,7 @@ import { isUndefined } from 'lodash';
 import style from './index.module.scss';
 import Card from '../../../../Components/Card';
 import Button from '../../../../Components/Button';
+import useHover from './../../../../Utilities/useHover.js';
 
 //state management
 import {
@@ -23,6 +24,7 @@ export default function Product({ products }) {
 	const cartProductsList = useSelector((state) => cart.selectAll(state));
 	const getProductOnCart = useSelector((state) => cart.selectById(state, id));
 	const dispatch = useDispatch();
+	const [ref, isHovered] = useHover();
 
 	const addItemToCart = () => {
 		let isQty = isUndefined(getProductOnCart);
@@ -53,18 +55,19 @@ export default function Product({ products }) {
 	};
 
 	return (
-		<div key={id} className={`${style.product} p-4`}>
+		<div key={id} className={`${style.product} p-4`} ref={ref}>
 			<Card
-				rowPos=' d-flex flex-column justify-content-center align-items-center'
+				rowPos=' d-flex flex-column justify-content-center align-items-center pt-5'
 				shape='circle'
 				size='medium'
 				thumbnail={require(`../../../../Assets/Products/${products.sku}.png`)}
 				{...products}>
 				<Button
+					style={isHovered ? 'visible' : 'invisible'}
 					handleClick={() => {
 						addItemToCart(products);
 					}}>
-					<span>add to cart</span>
+					<span>Add</span>
 				</Button>
 			</Card>
 		</div>
