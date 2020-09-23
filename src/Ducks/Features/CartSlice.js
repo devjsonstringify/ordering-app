@@ -7,6 +7,7 @@ const CartSlice = createSlice({
 	name: 'cart',
 	initialState: cartAdapter.getInitialState({
 		isOpen: false,
+		isEdit: false,
 	}),
 	reducers: {
 		addToCart: cartAdapter.addOne,
@@ -17,6 +18,9 @@ const CartSlice = createSlice({
 		cartIsOpen: (state, action) => {
 			state.isOpen = action.payload;
 		},
+		cartIsEdit: (state, action) => {
+			state.isEdit = !state.isEdit;
+		},
 	},
 });
 
@@ -26,6 +30,7 @@ export const {
 	updateCart,
 	deleteCart,
 	cartIsOpen,
+	cartIsEdit,
 } = CartSlice.actions;
 export default CartSlice.reducer;
 
