@@ -10,6 +10,9 @@ $base-color-border: #bcc2d0;
 	cursor: pointer;
 	&__active {
 		background-color: $base-color-bg;
+		& > div {
+			background-color: $base-color;
+		}
 	}
 
 	& > div {
