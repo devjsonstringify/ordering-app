@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 // import local file
 import Button from '../../../Button';
 
-// state management
-
 export default function Quantity({
 	classes,
 	minimumProduct,
@@ -16,23 +14,22 @@ export default function Quantity({
 }) {
 	let style = ['quantity'];
 	style.push(classes);
-
 	const editCart = useSelector((state) => state.cart.isEdit);
 	return (
 		<div className={style.join(' ')}>
 			{editCart ? (
 				<Button
-					style='btn-light'
+					style='btn-light mx-1 '
 					disabled={minimumProduct}
 					handleClick={handleDecrementQuantity}>
-					<span className='text-secondary'>-</span>
+					<span className='text-body h4'>-</span>
 				</Button>
 			) : null}
 
-			<span className='badge rounded-pill bg-light text-dark'>x{quantity}</span>
+			<h5 className='text-body'>x{quantity}</h5>
 			{editCart ? (
-				<Button style='btn-light' handleClick={handleIncrementQuantity}>
-					<span className='text-secondary'>+</span>
+				<Button style='btn-light mx-1' handleClick={handleIncrementQuantity}>
+					<span className='text-body h4'>+</span>
 				</Button>
 			) : null}
 		</div>

@@ -15,6 +15,7 @@ import QuantityTotal from './QuantityTotal.js';
 export default function Product({ product }) {
 	const { id, price, sku, quantity } = product;
 	const cartId = useSelector((state) => cart.selectById(state, id));
+	const isEdit = useSelector((state) => state.cart.isEdit);
 	const dispatch = useDispatch();
 	let minimumProduct = cartId.quantity < 2 ? true : false;
 	let calculateAmount = quantity * price;
@@ -71,7 +72,11 @@ export default function Product({ product }) {
 					}
 					minimumProduct={minimumProduct}
 					quantity={quantity}
-					classes='flex-fill'
+					classes={`${
+						isEdit
+							? 'd-flex justify-content-around align-items-center mx-4'
+							: 'flex-fill'
+					}`}
 				/>
 				<QuantityTotal classes='flex-fill' amount={calculateAmount} />
 			</div>
