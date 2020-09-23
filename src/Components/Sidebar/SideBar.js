@@ -9,6 +9,7 @@ import CartHeader from '../FloatCart/CartHeader';
 
 // state management
 import { cart } from '../../Ducks/Features/CartSlice.js';
+import EmptyCart from '../FloatCart/EmptyCart';
 
 export default function SideBar() {
 	//local state
@@ -17,14 +18,14 @@ export default function SideBar() {
 
 	return (
 		<div className={`col-3 container h-auto pt-5 ${style.sideBar}`}>
-			<CartHeader {...productsOnCart} />
 			{productsOnCart.length > 0 ? (
 				<>
+					<CartHeader {...productsOnCart} />
 					<FloatCart />
 					<Checkout />
 				</>
 			) : (
-				'empty cart'
+				<EmptyCart />
 			)}
 			{}
 		</div>
