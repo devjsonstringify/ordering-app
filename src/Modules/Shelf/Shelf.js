@@ -49,8 +49,8 @@ function Shelf() {
 
 export default {
 	routeProps: {
-		path: '/',
 		exact: true,
+		path: '/',
 		component: Shelf,
 	},
 	name: 'Shelf',
