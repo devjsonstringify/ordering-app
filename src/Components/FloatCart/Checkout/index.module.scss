@@ -8,10 +8,8 @@ $base-color-red: #ff2351;
 	border-top: 1px dashed;
 
 	.cartTotal {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
+		position: relative;
+		margin-top: 7%;
 		padding: 10%;
 		box-sizing: border-box;
 		text-align: center;
@@ -32,21 +30,4 @@ $base-color-red: #ff2351;
 			}
 		}
 	}
-
-	// > div {
-	// 	background-color: #ff2351;
-	// 	box-sizing: border-box;
-	// 	width: 100%;
-	// 	h5 {
-	// 		color: #ffffff;
-	// 		display: flex;
-	// 		justify-content: center;
-	// 		align-items: center;
-	// 		margin: 10px;
-	// 		span {
-	// 			color: #ffffff;
-	// 			margin: 10px;
-	// 		}
-	// 	}
-	// }
 }
