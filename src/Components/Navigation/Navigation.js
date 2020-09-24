@@ -15,9 +15,9 @@ import MenuItem from './MenuItem.js';
 import { cartIsOpen, cartSelector } from '../../Ducks/Features/CartSlice.js';
 
 export default function Navigation() {
-	const [menus, setMenus] = useState([
-		{ item: 'Home', thumbnail: Shop, link: '/' },
-		{ item: 'Bill', thumbnail: Bills, link: '/bills' },
+	const [menus] = useState([
+		{ item: 'shop', href: '/' },
+		{ item: 'bill', href: '/bills' },
 	]);
 	const dispatch = useDispatch();
 	const cart = useSelector((state) => state.cart.isOpen);
@@ -30,11 +30,11 @@ export default function Navigation() {
 	return (
 		<div className={`col pt-5 ${style.navigation}`}>
 			<nav className='navbar navbar-light p-0'>
-				<Link className='navbar-brand m-0' to='/'>
+				<Link className='navbar-brand m-auto' to='/'>
 					<img className='img-fluid' src={Logo} alt='logo' />
 				</Link>
 			</nav>
-			<nav className='w-100 menu-items d-flex flex-column align-items-center h-100 justify-content-center text-center'>
+			<nav className='w-100 menu-items d-flex flex-column align-items-center h-100  text-center'>
 				{menus.map((menu) => (
 					<MenuItem key={menu.item} {...menu} />
 				))}
