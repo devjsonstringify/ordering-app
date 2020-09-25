@@ -1,0 +1,81 @@
+$base-color: #ffffff;
+$base-color-bag: #e7201f;
+$base-color-text: #bcc2d0;
+$base-color-badge: #e6a744;
+$base-color-black: #000000;
+
+.float_cart {
+	position: fixed;
+	top: 0;
+	right: -450px;
+	width: 450px;
+	height: 100%;
+	background-color: $base-color;
+	box-sizing: border-box;
+	transition: right 0.2s;
+
+	&--open {
+		right: 0;
+	}
+
+	&--close-btn {
+		width: 50px;
+		height: 50px;
+		color: $base-color;
+		background-color: $base-color-bag;
+		text-align: center;
+		line-height: 50px;
+		position: absolute;
+		top: 0;
+		left: -50px;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $base-color-text;
+		}
+	}
+
+	.bag {
+		width: 40px;
+		height: 40px;
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 15px;
+		background-image: url('../../Assets/Icons/cart.png');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+
+		&--float-cart-closed {
+			position: absolute;
+			background-color: $base-color-bag;
+			background-size: 50%;
+			left: -60px;
+			width: 60px;
+			height: 60px;
+			cursor: pointer;
+
+			.bag__quantity {
+				bottom: 5px;
+				right: 10px;
+			}
+		}
+
+		&__quantity {
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			color: $base-color-black;
+			font-weight: bold;
+			font-size: 0.7em;
+			text-align: center;
+			line-height: 18px;
+			border-radius: 50%;
+			background-color: $base-color-badge;
+			position: absolute;
+			bottom: -5px;
+			right: 0px;
+		}
+	}
+}

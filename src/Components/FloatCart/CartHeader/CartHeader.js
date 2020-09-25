@@ -6,13 +6,14 @@ import Header from '../../Header';
 import Button from '../../Button';
 
 // state management
-import { cartIsEdit } from '../../../Ducks/Features/CartSlice.js';
+import { cart, cartIsEdit } from '../../../Ducks/Features/CartSlice.js';
 
-export default function CartHeader(props) {
+export default function CartHeader() {
+	const productsOnCart = useSelector((state) => cart.selectAll(state));
 	const dispatch = useDispatch();
 	return (
-		<Header regular='Order' strong='Menu'>
-			{Object.keys(props).length > 0 ? (
+		<Header regular='Order' strong='Menu' classes='mb-4 pl-4'>
+			{Object.keys(productsOnCart).length > 0 ? (
 				<Button handleClick={() => dispatch(cartIsEdit())}>
 					<span>
 						<svg

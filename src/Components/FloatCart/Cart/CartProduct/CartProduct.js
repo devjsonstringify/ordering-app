@@ -50,7 +50,7 @@ export default function Product({ product }) {
 	};
 
 	return (
-		<div className={`container cart-item pb-1 ${style.product}`}>
+		<div className={`cart-item pb-1 ${style.product}`}>
 			{isEdit ? (
 				<button
 					type='button'
