@@ -26,8 +26,8 @@ export default function Layout({ children }) {
 			<div className='row h-100'>
 				<Navigation />
 				<Main>{children}</Main>
-				<SideBar />
 			</div>
+			{isOpen && <SideBar />}
 		</div>
 	);
 }
