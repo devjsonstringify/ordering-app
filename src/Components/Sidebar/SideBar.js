@@ -14,7 +14,7 @@ import EmptyCart from '../FloatCart/EmptyCart';
 
 export default function SideBar() {
 	//local state
-	const isOpen = useSelector((state) => state.cart.isOpen);
+	const isOpen = useSelector((state) => state.sidebar.isOpen);
 	const productsOnCart = useSelector((state) => cart.selectAll(state));
 
 	let classes = ['sidebar'];
