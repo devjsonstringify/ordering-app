@@ -1,17 +1,13 @@
 // import react library
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 //import local files
-import style from './index.module.scss';
 import Navigation from '../Navigation/Navigation';
 import Main from '../Main/Main';
-import Sidebar from '../Sidebar';
-import FloatCart from '../FloatCart';
+import style from './index.module.scss';
 
 // state management
-import { cart } from '../../Ducks/Features/CartSlice.js';
 import SideBar from '../Sidebar';
 
 export default function Layout({ children }) {
