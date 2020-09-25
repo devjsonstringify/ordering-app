@@ -6,7 +6,6 @@ export const cartAdapter = createEntityAdapter();
 const CartSlice = createSlice({
 	name: 'cart',
 	initialState: cartAdapter.getInitialState({
-		isOpen: false,
 		isEdit: false,
 	}),
 	reducers: {
@@ -14,9 +13,6 @@ const CartSlice = createSlice({
 		updateCart: cartAdapter.updateOne,
 		deleteCart: (state, action) => {
 			cartAdapter.removeOne(state, action.payload);
-		},
-		cartIsOpen: (state, action) => {
-			state.isOpen = action.payload;
 		},
 		cartIsEdit: (state, action) => {
 			state.isEdit = !state.isEdit;
