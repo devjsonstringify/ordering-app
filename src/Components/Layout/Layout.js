@@ -15,19 +15,13 @@ import { cart } from '../../Ducks/Features/CartSlice.js';
 import SideBar from '../Sidebar';
 
 export default function Layout({ children }) {
-	// Toggle sidebar cart
-	// const floatCart = useSelector((state) => isOpen(state));
-	const isOpen = useSelector((state) => state.cart.isOpen);
-	const products = useSelector((state) => cart.selectAll(state));
-	const dispatch = useDispatch();
-
 	return (
 		<div className='container-fluid h-100'>
 			<div className='row h-100'>
 				<Navigation />
 				<Main>{children}</Main>
 			</div>
-			{isOpen && <SideBar />}
+			<SideBar />
 		</div>
 	);
 }
