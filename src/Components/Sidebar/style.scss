@@ -1,0 +1,17 @@
+$base-color: #ffffff;
+
+.sidebar {
+	background-color: $base-color;
+	position: fixed;
+	top: 0;
+	right: -450px;
+	width: 450px;
+	height: 100%;
+	box-sizing: border-box;
+	transition: right 0.2s;
+	overflow-y: auto;
+
+	&__open {
+		right: 0;
+	}
+}
