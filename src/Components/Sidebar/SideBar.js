@@ -12,7 +12,6 @@ import './style.scss';
 import { cart } from '../../Ducks/Features/CartSlice.js';
 import { isToggle } from '../../Ducks/Features/SideBar.js';
 import EmptyCart from '../FloatCart/EmptyCart';
-import Thumb from '../Thumb';
 
 export default function SideBar() {
 	//local state
