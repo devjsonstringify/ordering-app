@@ -13,7 +13,7 @@ export default function SearchProduct() {
 			strong='Menu'
 			regular='Category'
 			classes='search align-items-center mb-4'>
-			<div className={`input-group mb-3 w-75 ${style.search}`}>
+			<div className={`input-group input-group-lg mb-3 w-50 ${style.search}`}>
 				<span className='input-group-text'>
 					<svg
 						width='1em'
