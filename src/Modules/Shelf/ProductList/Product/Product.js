@@ -17,10 +17,11 @@ import {
 	cart,
 	cartIsOpen,
 } from '../../../../Ducks/Features/CartSlice.js';
+import { isToggle } from '../../../../Ducks/Features/SideBar.js';
 
 export default function Product({ products }) {
 	const { id } = products;
-	const isOpen = useSelector((state) => state.cart.isOpen);
+	// const isOpen = useSelector((state) => state.sidebar.isOpen);
 	const cartProductsList = useSelector((state) => cart.selectAll(state));
 	const getProductOnCart = useSelector((state) => cart.selectById(state, id));
 	const dispatch = useDispatch();
@@ -34,7 +35,7 @@ export default function Product({ products }) {
 			quantity,
 			total: products.price,
 		};
-		dispatch(cartIsOpen(!isOpen));
+		dispatch(isToggle(true));
 
 		// check if product already exist in the cart.
 		let idAlreadyExists = cartProductsList.find((product) => product.id == id);

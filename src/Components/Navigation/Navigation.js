@@ -28,7 +28,7 @@ export default function Navigation() {
 	}, [cart]);
 
 	return (
-		<div className={`col pt-5 ${style.navigation}`}>
+		<div className={`col-1 pt-5 ${style.navigation}`}>
 			<nav className='navbar navbar-light p-0'>
 				<Link className='navbar-brand m-auto' to='/'>
 					<img className='img-fluid' src={Logo} alt='logo' />
