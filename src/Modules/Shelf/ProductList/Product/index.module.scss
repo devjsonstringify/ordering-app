@@ -24,6 +24,11 @@ $base-color-btn: #ff2351;
 	width: 23%;
 	margin: 1%;
 
+	&:hover {
+		box-shadow: -2px 3px 11px 0px rgba(188, 194, 208, 1);
+		cursor: pointer;
+	}
+
 	button {
 		background-color: $base-color-btn;
 		animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
