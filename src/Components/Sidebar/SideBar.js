@@ -10,6 +10,7 @@ import './style.scss';
 
 // state management
 import { cart } from '../../Ducks/Features/CartSlice.js';
+import { isToggle } from '../../Ducks/Features/SideBar.js';
 import EmptyCart from '../FloatCart/EmptyCart';
 import Thumb from '../Thumb';
 
@@ -17,21 +18,30 @@ export default function SideBar() {
 	//local state
 	const isOpen = useSelector((state) => state.sideBar.isOpen);
 	const productsOnCart = useSelector((state) => cart.selectAll(state));
+	const dispatch = useDispatch();
 
 	let classes = ['float_cart'];
 	if (isOpen) {
 		classes.push('float_cart--open');
 	}
-
 	return (
 		<div className={classes.join(' ')}>
-			{isOpen && <div className='float_cart--close-btn'>X</div>}
+			{isOpen && (
+				<div
+					className='float_cart--close-btn'
+					onClick={() => dispatch(isToggle(false))}>
+					X
+				</div>
+			)}
 			{!isOpen && (
-				<span className='bag bag--float-cart-closed'>
+				<span
+					className='bag bag--float-cart-closed'
+					onClick={() => dispatch(isToggle(true))}>
 					<span className='bag__quantity'>{productsOnCart.length}</span>
 				</span>
 			)}
-			{isOpen && <FloatCart />}
+			{!!isOpen && productsOnCart.length > 0 && <FloatCart />}
+			{!!isOpen && productsOnCart.length < 1 && <EmptyCart />}
 		</div>
 	);
 }
