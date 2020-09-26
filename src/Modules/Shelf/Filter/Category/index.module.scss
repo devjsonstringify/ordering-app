@@ -8,6 +8,14 @@ $base-color-border: #bcc2d0;
 	background-color: $base-color;
 	border-radius: $radius;
 	cursor: pointer;
+	&:hover {
+		box-shadow: -2px 3px 11px 0px rgba(188, 194, 208, 1);
+		background-color: $base-color-bg;
+
+		& > div {
+			background-color: $base-color;
+		}
+	}
 	&__active {
 		background-color: $base-color-bg;
 		& > div {
