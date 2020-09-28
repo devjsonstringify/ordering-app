@@ -4,6 +4,8 @@ $base-color-text: #bcc2d0;
 .search {
 	border-radius: 22px;
 	background-color: $base-color-bg;
+	padding: 1%;
+	box-sizing: border-box;
 	& > span {
 		border: none;
 		background-color: $base-color-bg;
