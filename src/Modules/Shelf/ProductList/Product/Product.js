@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { isUndefined } from 'lodash';
+import { toast } from 'react-toastify';
 
 // import local files
 import style from './index.module.scss';
@@ -18,6 +19,7 @@ import {
 	cartIsOpen,
 } from '../../../../Ducks/Features/CartSlice.js';
 import { isToggle } from '../../../../Ducks/Features/SideBar.js';
+import Thumb from '../../../../Components/Thumb';
 
 export default function Product({ products }) {
 	const { id } = products;
@@ -35,11 +37,19 @@ export default function Product({ products }) {
 			quantity,
 			total: products.price,
 		};
-		dispatch(isToggle(true));
 
+		const notify = (content) => toast(content);
 		// check if product already exist in the cart.
 		let idAlreadyExists = cartProductsList.find((product) => product.id == id);
 		// otherwise add new product in the cart
+		notify(
+			<Card
+				rowPos='d-flex justify-content-center align-items-center'
+				shape='circle'
+				size='xsmall'
+				thumbnail={require(`../../../../Assets/Products/${newItemProduct.sku}.png`)}
+				{...newItemProduct}></Card>
+		);
 		if (!idAlreadyExists) dispatch(addToCart(newItemProduct));
 		// if exist and not undefined, update quantity
 		if (!isQty) {
