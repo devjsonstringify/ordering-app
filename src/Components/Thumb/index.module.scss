@@ -42,6 +42,11 @@ $base-color: #fdf3da;
 		max-width: 100px;
 		height: auto;
 	}
+	&.large {
+		width: 100%;
+		height: auto;
+		max-width: 8em;
+	}
 	width: 100%;
 	height: auto;
 	margin: auto;
