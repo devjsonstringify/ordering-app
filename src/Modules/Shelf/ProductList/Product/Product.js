@@ -38,7 +38,6 @@ export default function Product({ products }) {
 			quantity,
 			total: products.price,
 		};
-		dispatch(isToggle(true));
 
 		// otherwise add new product in the cart
 		if (!idAlreadyExists) dispatch(addToCart(newItemProduct));
@@ -59,7 +58,7 @@ export default function Product({ products }) {
 	return (
 		<div
 			key={id}
-			className={isHovered ? 'product d-block' : 'product'}
+			className={isHovered ? 'product_listing d-block' : 'product_listing'}
 			ref={ref}>
 			<Card
 				rowPos=' d-flex flex-column justify-content-center'
@@ -68,10 +67,11 @@ export default function Product({ products }) {
 				{...products}>
 				<ProductButtons
 					idAlreadyExists={idAlreadyExists}
-					handleViewProduct={() => console.log('view product')}
+					handleViewProduct={() => dispatch(isToggle(true))}
 					handleAddProduct={() => addItemToCart(products)}
 				/>
 			</Card>
+			<hr />
 		</div>
 	);
 }
