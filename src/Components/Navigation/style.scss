@@ -7,6 +7,9 @@ $base-color-text: #bcc2d0;
 		width: 80px;
 		height: 80px;
 	}
+	a {
+		font-family: 'Bungee', cursive;
+	}
 }
 .navigation {
 	height: 100%;
@@ -18,6 +21,7 @@ $base-color-text: #bcc2d0;
 
 .menu-items {
 	a {
+		color: $base-color-text;
 		&.active {
 			background-color: $base-color-active;
 			p {
