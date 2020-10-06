@@ -13,7 +13,7 @@ import SideBar from '../Sidebar';
 export default function Layout({ children }) {
 	return (
 		<div className='container-fluid h-100'>
-			<div className='row h-100'>
+			<div className='row flex-column'>
 				<Navigation />
 				<Main>{children}</Main>
 			</div>
