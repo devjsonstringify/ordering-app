@@ -71,7 +71,6 @@ export default function Product({ products }) {
 					handleAddProduct={() => addItemToCart(products)}
 				/>
 			</Card>
-			<hr />
 		</div>
 	);
 }
