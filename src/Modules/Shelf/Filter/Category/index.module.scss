@@ -8,6 +8,7 @@ $base-color-text: #000000;
 	flex-basis: 13.9%;
 	background-color: $base-color;
 	box-sizing: border-box;
+	margin-bottom: 1em;
 	cursor: pointer;
 
 	& > div {
@@ -34,5 +35,11 @@ $base-color-text: #000000;
 	}
 
 	& > div {
+	}
+}
+
+@media (max-width: 576px) {
+	.item {
+		flex-basis: 30%;
 	}
 }

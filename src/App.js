@@ -8,15 +8,16 @@ import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
 //import local files
 import Routes from './Routes/Routes';
 import './Assets/SASS/global.scss';
+import './Assets/SASS/custom.scss';
 
 function App() {
-  //fontawesome
-  library.add(fab, faCheckSquare, faCoffee);
-  return (
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
-  );
+	//fontawesome
+	library.add(fab, faCheckSquare, faCoffee);
+	return (
+		<BrowserRouter>
+			<Routes />
+		</BrowserRouter>
+	);
 }
 
 export default App;

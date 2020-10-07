@@ -32,7 +32,10 @@ $base-color: #fdf3da;
 		max-width: 35px;
 		height: auto;
 	}
-
+	&.msmall {
+		max-width: 50px;
+		height: auto;
+	}
 	&.small {
 		max-width: 85px;
 		height: auto;
