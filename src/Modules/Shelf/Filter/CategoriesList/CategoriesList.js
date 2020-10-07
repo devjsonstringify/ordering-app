@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // import local files
-import style from './index.module.scss';
+import './style.scss';
 import { VisibilityFilters } from '../../../../Ducks/Features/FilterSlice.js';
 import { setVisibilityFilter } from './../../../../Ducks/Features/FilterSlice.js';
 import Category from './../Category';
@@ -23,8 +23,7 @@ export default function CategoriesList() {
 	const dispatch = useDispatch();
 
 	return (
-		<div
-			className={`product-categories d-flex flex-wrap justify-content-between  mb-4`}>
+		<div className={`product-categories d-flex flex-wrap mb-4`}>
 			{products.map((item) => {
 				return (
 					<Category

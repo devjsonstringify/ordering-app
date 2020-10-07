@@ -56,6 +56,7 @@ $base-color-gray: #bcc2d0;
 
 		span {
 			color: $base-color;
+			font-size: 0.9rem;
 			text-transform: capitalize;
 		}
 	}
@@ -95,5 +96,11 @@ $base-color-gray: #bcc2d0;
 		-webkit-transform: translateZ(0);
 		transform: translateZ(0);
 		opacity: 1;
+	}
+}
+
+@media (max-width: 576px) {
+	.product_listing {
+		flex: 0 1 44%;
 	}
 }
