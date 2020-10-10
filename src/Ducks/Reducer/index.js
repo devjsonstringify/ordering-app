@@ -1,6 +1,6 @@
 // import react library
 import { combineReducers } from 'redux';
-
+import { firebaseReducer } from 'react-redux-firebase';
 // import local files
 import sideBarReducer from '../../Ducks/Features/SideBar.js';
 import cartReducer from '../../Ducks/Features/CartSlice.js';
@@ -17,6 +17,7 @@ const rootReducer = combineReducers({
 	sort: sortReducer,
 	filter: filterReducer,
 	searchQuery: searchReducer,
+	firebase: firebaseReducer,
 });
 
 export default rootReducer;
