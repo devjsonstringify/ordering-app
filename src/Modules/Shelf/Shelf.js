@@ -12,39 +12,32 @@ import { selectQuery } from '../../Ducks/Selectors/selectQuery.js';
 import SearchProduct from './SearchProduct';
 
 // state management files
-import {
-	fetchProducts,
-	productsSelector,
-} from '../../Ducks/Features/ProductsSlice.js';
+import { useFirebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 
 function Shelf() {
-	const { products: reduxProducts, loading, hasErrors } = useSelector(
-		productsSelector
-	);
-	const dispatch = useDispatch();
+	useFirebaseConnect([{ path: 'products' }]);
 	const products = useSelector((state) => selectQuery(state));
-
-	useEffect(() => {
-		if (loading === 'idle') {
-			dispatch(fetchProducts());
-		}
-	}, [dispatch, loading, reduxProducts]);
-
-	let content;
-	if (loading === 'loading') {
-		content = <Spinner />;
-	} else if (loading === 'succeded') {
-		return (content = (
+	if (!isLoaded(products)) {
+		return (
 			<Layout>
-				<SearchProduct />
-				<Filter />
-				<ProductList products={products} />;
+				<Spinner />
 			</Layout>
-		));
-	} else if (loading === 'failed') {
-		content = <p>{hasErrors}</p>;
+		);
 	}
-	return <>{content}</>;
+	return (
+		<Layout>
+			<SearchProduct />
+			<Filter />
+
+			{isEmpty(products) ? (
+				<div className='align-items-center d-flex justify-content-center p-5'>
+					<p className='text-center'> 😪 Sorry we cannot find your item.</p>
+				</div>
+			) : (
+				<ProductList products={products} />
+			)}
+		</Layout>
+	);
 }
 
 export default {
@@ -56,9 +49,4 @@ export default {
 	name: 'Shelf',
 };
 
-Shelf.propTypes = {
-	loading: PropTypes.string,
-	hasErrors: PropTypes.bool,
-	products: PropTypes.array,
-	dispatch: PropTypes.func,
-};
+Shelf.propTypes = {};
