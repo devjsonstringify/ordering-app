@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 
 // import local file
 import { VisibilityFilters } from '../Features/FilterSlice.js';
-const selectProducts = (state) => state.products.products;
+const selectProducts = (state) => state.firebase.data.products;
 const selectFilter = (state) => state.filter;
 
 export const selectFilterProducts = createSelector(
