@@ -1,16 +1,11 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-
-const firebaseConfig = {
-	apiKey: 'AIzaSyCZyOe6VGBE3S9_xhMr0G9TPyiD4H5xc28',
-	authDomain: 'ordering-react-app.firebaseapp.com',
-	databaseURL: 'https://ordering-react-app.firebaseio.com',
-	projectId: 'ordering-react-app',
-	storageBucket: 'ordering-react-app.appspot.com',
-	messagingSenderId: '907690730662',
-	appId: '1:907690730662:web:59a7efdd8dddf781354067',
+const configuration = {
+	apiKey: process.env.REACT_APP_API_KEY,
+	authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+	databaseURL: process.env.REACT_APP_DATABASE_URL,
+	projectId: process.env.REACT_APP_PROJECT_ID,
+	storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+	messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+	appId: process.env.REACT_APP_APP_ID,
 };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
 
-export default firebaseConfig;
+export default configuration;
