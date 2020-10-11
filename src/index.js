@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-<<<<<<< HEAD
-=======
 import firebase from 'firebase/app';
 import 'firebase/database';
 import 'firebase/firestore';
@@ -12,7 +10,6 @@ import 'firebase/firestore';
 import configuration from './config/Firebase.js';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { createFirestoreInstance } from 'redux-firestore';
->>>>>>> feature/firebase-integration
 import * as serviceWorker from './serviceWorker';
 
 import { toast } from 'react-toastify';

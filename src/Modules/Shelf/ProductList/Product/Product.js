@@ -40,15 +40,6 @@ export default function Product({ products }) {
 			total: products.price,
 		};
 
-		// otherwise add new product in the cart
-		notify(
-			<Card
-				rowPos='d-flex justify-content-center align-items-center'
-				shape='circle'
-				size='xsmall'
-				thumbnail={require(`../../../../Assets/Products/${newItemProduct.sku}.png`)}
-				{...newItemProduct}></Card>
-		);
 		if (!idAlreadyExists) dispatch(addToCart(newItemProduct));
 		// if exist and not undefined, update quantity
 		if (!isQty) {
