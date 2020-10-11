@@ -1,0 +1,32 @@
+$base-color: #ffffff;
+$base-color-active: #e7201f;
+$base-color-text: #bcc2d0;
+
+.navbar {
+	.navbar-brand img {
+		width: 80px;
+		height: 80px;
+	}
+	a {
+		font-family: 'Bungee', cursive;
+	}
+}
+.navigation {
+	height: 100%;
+	text-transform: capitalize;
+	svg {
+		fill: $base-color-text;
+	}
+}
+
+.menu-items {
+	a {
+		color: $base-color-text;
+		&.active {
+			background-color: $base-color-active;
+			p {
+				color: $base-color;
+			}
+		}
+	}
+}

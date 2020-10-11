@@ -7,8 +7,8 @@ $base-color-black: #000000;
 .float_cart {
 	position: fixed;
 	top: 0;
-	right: -450px;
-	width: 450px;
+	right: calc(-100vw / 4);
+	width: calc(100vw / 4);
 	height: 100%;
 	background-color: $base-color;
 	box-sizing: border-box;
@@ -84,4 +84,14 @@ $base-color-black: #000000;
 .wrapper {
 	overflow-y: scroll;
 	height: 100%;
+}
+
+@media (max-width: 576px) {
+	.float_cart {
+		right: calc(-80%);
+		width: calc(100% - 20%);
+		&--open {
+			right: 0;
+		}
+	}
 }

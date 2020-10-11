@@ -11,6 +11,7 @@ const persistConfig = {
 	storage,
 	whitelist: ['cart'],
 };
+
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 const store = configureStore({
 	reducer: persistedReducer,
@@ -18,5 +19,4 @@ const store = configureStore({
 });
 
 let persistor = persistStore(store);
-
 export { store, persistor };

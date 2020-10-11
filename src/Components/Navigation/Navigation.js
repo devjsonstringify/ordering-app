@@ -4,11 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 
 //import local files
-import style from './index.module.scss';
-import Logo from './../../Assets/images/logo.jpg';
-import Shop from './../../Assets/images/shop.png';
-import Dashboard from './../../Assets/images/dashboard.jpg';
-import Bills from './../../Assets/images/bills.jpg';
+import './style.scss';
 import MenuItem from './MenuItem.js';
 
 // state management
@@ -28,13 +24,15 @@ export default function Navigation() {
 	}, [cart]);
 
 	return (
-		<div className={`col-1 pt-5 ${style.navigation}`}>
-			<nav className='navbar navbar-light p-0'>
-				<Link className='navbar-brand m-auto' to='/'>
-					<img className='img-fluid' src={Logo} alt='logo' />
-				</Link>
+		<div className='col row d-flex justify-content-between container navigation'>
+			<nav className='navbar navbar-light bg-light col col-md-4 h-100'>
+				<div className='container-fluid'>
+					<Link className='navbar-brand' to='/'>
+						<h2 className='text-uppercase text-body'>Pagkaon</h2>
+					</Link>
+				</div>
 			</nav>
-			<nav className='w-100 menu-items d-flex flex-column align-items-center h-100  text-center'>
+			<nav className='menu-items d-flex text-center col col-md-3 offset-md-4 justify-content-end mr-5 h-100'>
 				{menus.map((menu) => (
 					<MenuItem key={menu.item} {...menu} />
 				))}

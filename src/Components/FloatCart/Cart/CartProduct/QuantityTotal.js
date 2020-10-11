@@ -5,7 +5,7 @@ export default function QuantityTotal({ amount, classes }) {
 	style.push(classes);
 	return (
 		<div className={style.join(' ')}>
-			<p>{amount.toFixed(2)}</p>
+			<p className='text-body'>Sub total: ${amount.toFixed(2)}</p>
 		</div>
 	);
 }

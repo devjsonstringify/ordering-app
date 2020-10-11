@@ -2,29 +2,44 @@ $base-color: #ffffff;
 $base-color-bg: #feda6c;
 $radius: 25px 25px 25px 25px;
 $base-color-border: #bcc2d0;
+$base-color-text: #000000;
 
 .item {
-	flex-basis: 12.5%;
+	flex-basis: 13.9%;
 	background-color: $base-color;
-	border-radius: $radius;
+	box-sizing: border-box;
+	margin-bottom: 1em;
 	cursor: pointer;
+
+	& > div {
+		& + h6 {
+			color: $base-color-text;
+		}
+	}
 	&:hover {
 		box-shadow: -2px 3px 11px 0px rgba(188, 194, 208, 1);
 		background-color: $base-color-bg;
 
 		& > div {
-			background-color: $base-color;
+			// background-color: $base-color;
 		}
 	}
 	&__active {
 		background-color: $base-color-bg;
 		& > div {
-			background-color: $base-color;
+			// background-color: $base-color;
+			& + h6 {
+				color: $base-color !important;
+			}
 		}
 	}
 
 	& > div {
-		border: 1px solid $base-color-border;
-		border-radius: $radius;
+	}
+}
+
+@media (max-width: 576px) {
+	.item {
+		flex-basis: 30%;
 	}
 }

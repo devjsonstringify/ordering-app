@@ -6,7 +6,7 @@ import { isUndefined } from 'lodash';
 import { toast } from 'react-toastify';
 
 // import local files
-import style from './index.module.scss';
+import './style.scss';
 import Card from '../../../../Components/Card';
 import Button from '../../../../Components/Button';
 import useHover from './../../../../Utilities/useHover.js';
@@ -19,7 +19,7 @@ import {
 	cartIsOpen,
 } from '../../../../Ducks/Features/CartSlice.js';
 import { isToggle } from '../../../../Ducks/Features/SideBar.js';
-import Thumb from '../../../../Components/Thumb';
+import ProductButtons from './ProductButtons';
 
 export default function Product({ products }) {
 	const { id } = products;
@@ -28,6 +28,8 @@ export default function Product({ products }) {
 	const getProductOnCart = useSelector((state) => cart.selectById(state, id));
 	const dispatch = useDispatch();
 	const [ref, isHovered] = useHover();
+	// check if product already exist in the cart.
+	let idAlreadyExists = cartProductsList.find((product) => product.id == id);
 
 	const addItemToCart = () => {
 		let isQty = isUndefined(getProductOnCart);
@@ -38,9 +40,6 @@ export default function Product({ products }) {
 			total: products.price,
 		};
 
-		const notify = (content) => toast(content);
-		// check if product already exist in the cart.
-		let idAlreadyExists = cartProductsList.find((product) => product.id == id);
 		// otherwise add new product in the cart
 		notify(
 			<Card
@@ -66,20 +65,20 @@ export default function Product({ products }) {
 	};
 
 	return (
-		<div key={id} className={`${style.product} p-4`} ref={ref}>
+		<div
+			key={id}
+			className={isHovered ? 'product_listing d-block' : 'product_listing'}
+			ref={ref}>
 			<Card
-				rowPos=' d-flex flex-column justify-content-center align-items-center pt-5'
-				shape='circle'
-				size='medium'
+				rowPos=' d-flex flex-column justify-content-center'
+				size='large'
 				thumbnail={require(`../../../../Assets/Products/${products.sku}.png`)}
 				{...products}>
-				<Button
-					style={isHovered ? 'visible' : 'invisible'}
-					handleClick={() => {
-						addItemToCart(products);
-					}}>
-					<span>Add</span>
-				</Button>
+				<ProductButtons
+					idAlreadyExists={idAlreadyExists}
+					handleViewProduct={() => dispatch(isToggle(true))}
+					handleAddProduct={() => addItemToCart(products)}
+				/>
 			</Card>
 		</div>
 	);
@@ -97,25 +96,3 @@ Product.propTypes = {
 		sku: PropTypes.string,
 	}),
 };
-
-{
-	/* <div className='card p-4'>
-				<img
-					className={`text-center ${style.img}`}
-					src={require(`../../../../Assets/Products/${products.sku}.png`)}
-					alt='name'></img>
-				<div className='card-body text-primary text-center'>
-					<h5 className='card-title text-dark'>{products.name}</h5>
-					<p className='card-text'>${products.price}</p>
-				</div>
-				<button
-					type='button'
-					className='btn btn-outline-secondary'
-					onClick={() => {
-						addItemToCart(products);
-					}}>
-					Add to cart
-				</button>
-			</div>
-		</div> */
-}

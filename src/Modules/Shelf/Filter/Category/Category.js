@@ -10,8 +10,8 @@ export default function Category(props) {
 	let newProps = props.visibility.slice(5);
 	const isActive = props.btn.slice(5) === newProps ? true : false;
 	const darkImage = isActive
-		? require(`../../../../Assets/Icons/dark/${newProps.toLowerCase()}.png`)
-		: require(`../../../../Assets/Icons/${newProps.toLowerCase()}.png`);
+		? require(`../../../../Assets/Icons/${newProps.toLowerCase()}.png`)
+		: require(`../../../../Assets/Icons/dark/${newProps.toLowerCase()}.png`);
 	// const isBtn = props.btn.slice(5) === newProps ? `py-4 bg-light` : 'py-4';
 	return (
 		<div
@@ -21,9 +21,9 @@ export default function Category(props) {
 			onClick={props.handleClick}>
 			<div
 				className={
-					isActive ? `p-4 border-white ${style.item__background}` : 'p-4 '
+					isActive ? `p-1 border-white ${style.item__background}` : 'p-1'
 				}>
-				<Thumb size='xsmall' thumbnail={darkImage} />
+				<Thumb size='msmall' thumbnail={darkImage} />
 			</div>
 			<h6
 				className={`text-center text-capitalize my-3 ${
