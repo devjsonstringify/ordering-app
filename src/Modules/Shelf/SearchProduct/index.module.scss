@@ -6,6 +6,7 @@ $base-color-text: #bcc2d0;
 	background-color: $base-color-bg;
 	padding: 1%;
 	box-sizing: border-box;
+	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2), 0 0px 15px rgba(0, 0, 0, 0.05);
 	& > span {
 		border: none;
 		background-color: $base-color-bg;
@@ -17,5 +18,11 @@ $base-color-text: #bcc2d0;
 			color: $base-color-text;
 			opacity: 1;
 		}
+	}
+	p {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		margin: 0;
 	}
 }
