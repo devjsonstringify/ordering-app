@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useFirebase } from 'react-redux-firebase';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
@@ -10,32 +10,38 @@ import Button from '../../Button';
 import { cart } from '../../../Ducks/Features/CartSlice.js';
 
 export default function Checkout() {
+	const [checkoutDetails, setCheckoutDetails] = useState({
+		orders: [],
+		subTotal: null,
+		taxRate: 0.025,
+		tax: null,
+		total: null,
+	});
 	const firebase = useFirebase();
 	const [wasSent, updateSentState] = useState('idle');
 	const productsOnCart = useSelector((state) => cart.selectAll(state));
 	const calculateTotal = productsOnCart.reduce(function (prev, cur) {
 		return prev + cur.total;
 	}, 0);
-
-	const toFixed = (number) => {
-		if (number != undefined) return parseInt(number.toFixed(2));
-	};
-
-	const tax = 0.025;
-	let subTotal = calculateTotal;
-	const calculateTax = subTotal * tax;
-	const grandTotal = calculateTax + subTotal;
+	useEffect(() => {
+		if (productsOnCart.length > 0) {
+			setCheckoutDetails({
+				...checkoutDetails,
+				orders: [...productsOnCart],
+				subTotal: calculateTotal.toFixed(2),
+				tax: (calculateTotal * checkoutDetails.taxRate).toFixed(2),
+				total: (
+					calculateTotal * checkoutDetails.taxRate +
+					calculateTotal
+				).toFixed(2),
+			});
+		}
+	}, [productsOnCart]);
 
 	const addCheckout = () => {
 		updateSentState('proccessing');
-		const proceedToCheckout = {
-			orders: [...productsOnCart],
-			subtotal: toFixed(calculateTotal),
-			tax: toFixed(calculateTotal * tax),
-			total: toFixed(calculateTotal * tax + calculateTotal),
-		};
 		return firebase
-			.push('checkout', proceedToCheckout)
+			.push('checkout', checkoutDetails)
 			.then((data) => {
 				const {
 					path: { pieces_ },
@@ -50,6 +56,8 @@ export default function Checkout() {
 			.catch((error) => console.log(error));
 	};
 
+	const { subTotal, tax, total } = checkoutDetails;
+
 	return (
 		<div className={`mt-5 h-25 p-4 ${style.checkout}`}>
 			<div className='cart-taxes '>
@@ -58,17 +66,15 @@ export default function Checkout() {
 					<tbody>
 						<tr>
 							<td>Sub Total</td>
-							<td className='text-body'>${subTotal.toFixed(2)}</td>
+							<td className='text-body'>${subTotal}</td>
 						</tr>
 						<tr>
 							<td>Tax rate (2.5%)</td>
-							<td className='text-body'>${calculateTax.toFixed(2)}</td>
+							<td className='text-body'>${tax}</td>
 						</tr>
 						<tr className='border-top'>
 							<td className='h4 text-body font-weight-bold'>Total</td>
-							<td className='h4 text-body font-weight-bold'>
-								${grandTotal.toFixed(2)}
-							</td>
+							<td className='h4 text-body font-weight-bold'>${total}</td>
 						</tr>
 					</tbody>
 				</table>
