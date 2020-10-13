@@ -8,6 +8,7 @@ import productsReducer from '../../Ducks/Features/ProductsSlice.js';
 import sortReducer from '../../Ducks/Features/SortSlice.js';
 import filterReducer from '../../Ducks/Features/FilterSlice.js';
 import searchReducer from '../../Ducks/Features/SearchSlice.js';
+import checkoutReducer from '../../Ducks/Features/CheckOut.js';
 
 // root reducers
 const rootReducer = combineReducers({
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
 	sort: sortReducer,
 	filter: filterReducer,
 	searchQuery: searchReducer,
+	checkOut: checkoutReducer,
 	firebase: firebaseReducer,
 });
 
