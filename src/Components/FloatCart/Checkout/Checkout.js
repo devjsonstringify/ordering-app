@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useFirebase } from 'react-redux-firebase';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
@@ -7,7 +7,10 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import style from './index.module.scss';
 import Total from './Total.js';
 import Button from '../../Button';
+
+// state management
 import { cart } from '../../../Ducks/Features/CartSlice.js';
+import { checkOutIsSubmit } from '../../../Ducks/Features/CheckOut.js';
 
 export default function Checkout() {
 	const [checkoutDetails, setCheckoutDetails] = useState({
@@ -18,11 +21,14 @@ export default function Checkout() {
 		total: null,
 	});
 	const firebase = useFirebase();
+	const dispatch = useDispatch();
 	const [wasSent, updateSentState] = useState('idle');
 	const productsOnCart = useSelector((state) => cart.selectAll(state));
 	const calculateTotal = productsOnCart.reduce(function (prev, cur) {
 		return prev + cur.total;
 	}, 0);
+
+	console.log(useSelector((state) => state.checkOut));
 	useEffect(() => {
 		if (productsOnCart.length > 0) {
 			setCheckoutDetails({
@@ -51,6 +57,7 @@ export default function Checkout() {
 				console.log(transactionId);
 				setTimeout(function () {
 					updateSentState('success');
+					dispatch(checkOutIsSubmit(true));
 				}, 1500);
 			})
 			.catch((error) => console.log(error));
