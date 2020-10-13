@@ -1,24 +1,26 @@
 $base-color-bg: #ffffff;
 $base-color-red: #ff2351;
+$base-color-text: #bcc2d0;
 
 .checkout {
 	position: relative;
 	width: 100%;
 	background-color: $base-color-bg;
 	border-top: 1px dashed;
+	color: $base-color-text;
+
+	tbody {
+		color: $base-color-text;
+	}
 
 	.cartTotal {
 		position: relative;
-		margin-top: 7%;
-		padding: 10%;
-		box-sizing: border-box;
 		text-align: center;
 
 		button {
-			h5 {
+			h4 {
 				color: $base-color-bg;
 				background-color: $base-color-red;
-				border-radius: 20px;
 				box-shadow: 2px 0px 39px -14px rgba(255, 35, 81, 0.57);
 				-webkit-box-shadow: 2px 0px 39px -14px rgba(255, 35, 81, 0.57);
 				-moz-box-shadow: 2px 0px 39px -14px rgba(255, 35, 81, 0.57);
@@ -26,6 +28,11 @@ $base-color-red: #ff2351;
 
 				span {
 					color: $base-color-bg;
+
+					img {
+						width: 35px;
+						height: 35px;
+					}
 				}
 			}
 		}

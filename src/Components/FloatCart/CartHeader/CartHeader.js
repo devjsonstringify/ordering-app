@@ -11,5 +11,7 @@ import { cart } from '../../../Ducks/Features/CartSlice.js';
 export default function CartHeader() {
 	const productsOnCart = useSelector((state) => cart.selectAll(state));
 	const dispatch = useDispatch();
-	return <Header regular='Order' strong='Menu' classes='mb-4 pl-4' />;
+	return (
+		<Header regular='Order' strong='Menu' classes='mb-4 pl-4 border-bottom' />
+	);
 }
