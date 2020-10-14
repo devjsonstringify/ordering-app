@@ -28,12 +28,20 @@ export default function Checkout() {
 		return prev + cur.total;
 	}, 0);
 
-	console.log(useSelector((state) => state.checkOut));
 	useEffect(() => {
 		if (productsOnCart.length > 0) {
 			setCheckoutDetails({
 				...checkoutDetails,
-				orders: [...productsOnCart],
+				orders: [
+					...productsOnCart.map(({ id, name, price, quantity, ...rest }) => {
+						return {
+							id,
+							name,
+							price,
+							quantity,
+						};
+					}),
+				],
 				subTotal: calculateTotal.toFixed(2),
 				tax: (calculateTotal * checkoutDetails.taxRate).toFixed(2),
 				total: (
