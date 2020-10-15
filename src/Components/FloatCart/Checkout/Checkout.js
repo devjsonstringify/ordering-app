@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFirebase } from 'react-redux-firebase';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 //import local file
 import style from './index.module.scss';
@@ -9,8 +9,12 @@ import Total from './Total.js';
 import Button from '../../Button';
 
 // state management
-import { cart } from '../../../Ducks/Features/CartSlice.js';
-import { checkOutIsSubmit } from '../../../Ducks/Features/CheckOut.js';
+import { cart, deleteAllCart } from '../../../Ducks/Features/CartSlice.js';
+import { isToggle } from '../../../Ducks/Features/SideBar.js';
+import {
+	checkOutIsSubmit,
+	getTransactionId,
+} from '../../../Ducks/Features/CheckOut.js';
 
 export default function Checkout() {
 	const [checkoutDetails, setCheckoutDetails] = useState({
@@ -22,6 +26,7 @@ export default function Checkout() {
 	});
 	const firebase = useFirebase();
 	const dispatch = useDispatch();
+	const history = useHistory();
 	const [wasSent, updateSentState] = useState('idle');
 	const productsOnCart = useSelector((state) => cart.selectAll(state));
 	const calculateTotal = productsOnCart.reduce(function (prev, cur) {
@@ -52,6 +57,12 @@ export default function Checkout() {
 		}
 	}, [productsOnCart]);
 
+	useEffect(() => {
+		if (wasSent === 'success') {
+			history.push('/bills');
+		}
+	}, [wasSent]);
+
 	const addCheckout = () => {
 		updateSentState('proccessing');
 		return firebase
@@ -61,11 +72,15 @@ export default function Checkout() {
 					path: { pieces_ },
 				} = data;
 				const findId = Object.values(pieces_);
-				const transactionId = findId[1];
-				console.log(transactionId);
+				const transactionId = findId[1]; // get transaction id
+
 				setTimeout(function () {
+					// intentionaly to load a bit long than actual
 					updateSentState('success');
-					dispatch(checkOutIsSubmit(true));
+					dispatch(getTransactionId(transactionId));
+					dispatch(deleteAllCart());
+					dispatch(checkOutIsSubmit(false));
+					dispatch(isToggle(false));
 				}, 1500);
 			})
 			.catch((error) => console.log(error));
@@ -104,7 +119,7 @@ export default function Checkout() {
 							<span>Order Confirmed</span>
 						) : wasSent == 'proccessing' ? (
 							<span>
-								Order proccessing
+								proccessing...
 								<img src={require(`../../../Assets/images/loading.gif`)} />
 							</span>
 						) : (
