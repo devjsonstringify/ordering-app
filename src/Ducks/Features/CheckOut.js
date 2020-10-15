@@ -7,18 +7,23 @@ const CheckOut = createSlice({
 	name: 'checkout',
 	initialState: CheckOutAdapter.getInitialState({
 		isSubmit: false,
+		transactionId: null,
 	}),
 	reducers: {
-		// addToCart: CheckOutAdapter.addOne,
-		// updateCart: CheckOutAdapter.updateOne,
-		// deleteCart: (state, action) => {
-		// 	CheckOutAdapter.removeOne(state, action.payload);
-		// },
 		checkOutIsSubmit: (state, action) => {
 			state.isSubmit = action.payload;
 		},
+		getTransactionId: (state, action) => {
+			state.transactionId = action.payload;
+		},
+		deleteAllCheckOutDetails: CheckOutAdapter.removeAll,
 	},
 });
 
-export const { checkOutIsSubmit } = CheckOut.actions;
+export const {
+	checkOutIsSubmit,
+	setCheckoutOrders,
+	getTransactionId,
+	deleteAllCheckOutDetails,
+} = CheckOut.actions;
 export default CheckOut.reducer;
