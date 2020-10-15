@@ -17,6 +17,7 @@ const CartSlice = createSlice({
 		cartIsEdit: (state, action) => {
 			state.isEdit = !state.isEdit;
 		},
+		deleteAllCart: cartAdapter.removeAll,
 	},
 });
 
@@ -27,6 +28,7 @@ export const {
 	deleteCart,
 	cartIsOpen,
 	cartIsEdit,
+	deleteAllCart,
 } = CartSlice.actions;
 export default CartSlice.reducer;
 
