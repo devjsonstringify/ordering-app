@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import flatten from 'lodash/flatten';
+import _ from 'lodash';
 
 //import local files
+import Reciept from './Reciept';
 import Layout from './../../Components/Layout';
 
 // firebase
@@ -10,27 +11,36 @@ import { useFirebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 
 function Bills(props) {
 	const orderId = useSelector((state) => state.checkOut.transactionId);
-	useFirebaseConnect([{ path: `/checkout/${orderId}` }]);
+	const [isQueryOkay, setIsQueryOkay] = useState(false);
+	const [checkout, setCheckout] = useState({});
+	useFirebaseConnect([
+		{
+			path: `checkout/${orderId}`,
+			queryParams: ['parsed', 'limitToFirst=1'],
+		},
+	]);
+	const checkOutDetails = useSelector((state) => state.firebase.data.checkout);
 
-	const checkOuDetails = useSelector((state) => state.firebase.data.checkout);
+	useEffect(() => {
+		if (_.isUndefined(checkOutDetails)) {
+			setIsQueryOkay(false);
+		}
+		setIsQueryOkay(true);
+	}, [checkOutDetails]);
 
-	// Show message while todos are loading
-	if (!isLoaded(checkOuDetails)) {
-		return <div>Loading...</div>;
-	}
-
-	// Show message if there are no todos
-	if (isEmpty(checkOuDetails)) {
-		return <div>orders List Is Empty</div>;
-	}
 	return (
 		<Layout>
-			<pre>
-				// add edge cases if no productId found, in short no data yet
-				{Object.values(checkOuDetails).map(({ orders }) => {
-					return JSON.stringify(orders, null, 2);
-				})}
-			</pre>
+			<div className='container'>
+				{!isLoaded(checkOutDetails) ? (
+					'loading...'
+				) : isEmpty(checkOutDetails) ? (
+					'empty orders'
+				) : isQueryOkay ? (
+					<Reciept {...checkOutDetails} />
+				) : (
+					'error'
+				)}
+			</div>
 		</Layout>
 	);
 }
