@@ -7,7 +7,7 @@ const CheckOut = createSlice({
 	name: 'checkout',
 	initialState: CheckOutAdapter.getInitialState({
 		isSubmit: false,
-		transactionId: null,
+		transactionId: '',
 	}),
 	reducers: {
 		checkOutIsSubmit: (state, action) => {
