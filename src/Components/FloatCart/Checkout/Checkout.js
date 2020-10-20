@@ -75,7 +75,6 @@ export default function Checkout() {
 				const transactionId = findId[1]; // get transaction id
 
 				setTimeout(function () {
-					// intentionaly to load a bit long than actual
 					updateSentState('success');
 					dispatch(getTransactionId(transactionId));
 					dispatch(deleteAllCart());
