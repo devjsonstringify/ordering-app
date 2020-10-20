@@ -1,9 +1,9 @@
 import React from 'react';
-import _ from 'lodash';
-// import local file
+import { flatMapDeep } from 'lodash';
+import PropTypes from 'prop-types';
 
 export default function Total(props) {
-	const checkoutdetail = Object.values(props);
+	const checkoutdetail = flatMapDeep(props);
 	return (
 		<div className='order_total border-top'>
 			{checkoutdetail.map((order) => {
@@ -23,7 +23,7 @@ export default function Total(props) {
 						<li>
 							<h6 className='d-flex justify-content-between align-items-center'>
 								GST
-								<span>${order.taxRate}%</span>
+								<span>2.5%</span>
 							</h6>
 						</li>
 						<li>
@@ -38,3 +38,6 @@ export default function Total(props) {
 		</div>
 	);
 }
+Total.propTypes = {
+	props: PropTypes.object,
+};

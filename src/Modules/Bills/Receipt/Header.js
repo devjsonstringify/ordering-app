@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
-import _ from 'lodash';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export default function Header(props) {
-	const transaction = Object.keys(props);
-
+export default function Header({ transaction }) {
 	return (
 		<div className='bill_header'>
 			<div>
@@ -17,9 +14,7 @@ export default function Header(props) {
 				</address>
 				<p className='text-center'>
 					Term ID-transaction #:{' '}
-					{!_.isEmpty(transaction) && (
-						<span className='font-weight-bolder'>{transaction}</span>
-					)}
+					<span className='font-weight-bolder'>{transaction}</span>
 				</p>
 			</div>
 			<div className='my p-3 text-center'>
@@ -28,3 +23,6 @@ export default function Header(props) {
 		</div>
 	);
 }
+Header.propTypes = {
+	props: PropTypes.object,
+};

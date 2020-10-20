@@ -1,10 +1,12 @@
-import _ from 'lodash';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { flattenDeep } from 'lodash';
+import PropTypes from 'prop-types';
 
+// import local files
 import Table from './Table.js';
-export default function Orders(props) {
-	const checkoutdetail = Object.values(props);
-	const findOrders = Object.values(checkoutdetail[0])[0];
+
+export default function Orders({ products }) {
+	const items = flattenDeep(products);
 	return (
 		<div className='border-top'>
 			<Table>
@@ -22,7 +24,7 @@ export default function Orders(props) {
 					</tr>
 				</thead>
 				<tbody>
-					{findOrders.map(({ quantity, name, price }) => {
+					{items.map(({ quantity, name, price }) => {
 						return (
 							<tr key={`${name}`}>
 								<td scope='col' colSpan='2'>
@@ -42,3 +44,6 @@ export default function Orders(props) {
 		</div>
 	);
 }
+Orders.propTypes = {
+	props: PropTypes.object,
+};

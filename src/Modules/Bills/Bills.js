@@ -1,48 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import _ from 'lodash';
+import { filter, isUndefined } from 'lodash';
 
 //import local files
-import Reciept from './Reciept';
 import Layout from './../../Components/Layout';
-
+import Receipt from './Receipt';
+import EmptyReceipt from './Receipt/EmptyReceipt';
+import Spinner from '../../Components/Spinner';
 // firebase
 import { useFirebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 
-function Bills(props) {
-	const orderId = useSelector((state) => state.checkOut.transactionId);
-	const [isQueryOkay, setIsQueryOkay] = useState(false);
-	const [checkout, setCheckout] = useState({});
-	useFirebaseConnect([
-		{
-			path: `checkout/${orderId}`,
-			queryParams: ['parsed', 'limitToFirst=1'],
-		},
-	]);
-	const checkOutDetails = useSelector((state) => state.firebase.data.checkout);
+function Bills() {
+	const dispatch = useDispatch();
+	const [orders, setOrders] = useState({});
+	useFirebaseConnect([{ path: 'checkout' }]);
+	const orderById = useSelector((state) => state.checkOut.transactionId);
+	const checkout = useSelector((state) => state.firebase.ordered.checkout);
 
 	useEffect(() => {
-		if (_.isUndefined(checkOutDetails)) {
-			setIsQueryOkay(false);
+		if (orderById.length > 0 && !isUndefined(checkout)) {
+			const isOrder = filter(checkout, (item) => item.key === orderById);
+			if (!isEmpty(isOrder)) setOrders(isOrder);
 		}
-		setIsQueryOkay(true);
-	}, [checkOutDetails]);
+	}, [orderById, checkout]);
 
-	return (
-		<Layout>
-			<div className='container'>
-				{!isLoaded(checkOutDetails) ? (
-					'loading...'
-				) : isEmpty(checkOutDetails) ? (
-					'empty orders'
-				) : isQueryOkay ? (
-					<Reciept {...checkOutDetails} />
-				) : (
-					'error'
-				)}
+	let content;
+	if (!isLoaded(checkout)) {
+		content = <Spinner />;
+	} else if (!isEmpty(orders)) {
+		return (content = (
+			<div className='container mt-5'>
+				<Receipt {...orders} />
 			</div>
-		</Layout>
-	);
+		));
+	} else if (isEmpty(orders)) {
+		content = <EmptyReceipt />;
+	}
+	return <Layout>{content}</Layout>;
 }
 
 export default {
