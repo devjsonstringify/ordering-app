@@ -29,9 +29,11 @@ function Bills() {
 		content = <Spinner />;
 	} else if (!isEmpty(orders)) {
 		return (content = (
-			<div className='container mt-5'>
-				<Receipt {...orders} />
-			</div>
+			<Layout>
+				<div className='container mt-5'>
+					<Receipt {...orders} />
+				</div>
+			</Layout>
 		));
 	} else if (isEmpty(orders)) {
 		content = <EmptyReceipt />;
