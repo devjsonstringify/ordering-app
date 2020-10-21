@@ -53,4 +53,4 @@ npm start
 
 ## Contact
 
-Are you interested in collaborating with me? please fire your [email](dev.json.stringify@gmail.com)
+Are you interested in collaborating with me? please fire your email at dev.json.stringify@gmail.com
