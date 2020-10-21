@@ -2,6 +2,7 @@
 @import '../../../node_modules/bootstrap/scss/bootstrap';
 
 $background-body: #fafafa;
+$background-accent: #e7201f;
 
 html,
 body,
@@ -9,4 +10,9 @@ body,
 	height: 100%;
 	background-color: $background-body;
 	font-family: 'Roboto Mono', monospace;
+}
+
+// progress bar
+.Toastify__progress-bar--default.custom_progress {
+	background: $background-accent;
 }
