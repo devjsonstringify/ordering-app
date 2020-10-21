@@ -20,7 +20,7 @@ import App from './App';
 import { store, persistor } from './Ducks/Store';
 
 toast.configure({
-	position: 'bottom-right',
+	position: 'top-center',
 	autoClose: 5000,
 	hideProgressBar: false,
 	closeOnClick: true,
@@ -28,6 +28,7 @@ toast.configure({
 	draggable: true,
 	progress: undefined,
 });
+
 // react-redux-firebase config
 const rrfConfig = {
 	userProfile: 'products',

@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { isUndefined } from 'lodash';
-import { toast } from 'react-toastify';
 
 // import local files
 import './style.scss';
@@ -28,6 +27,7 @@ export default function Product({ products }) {
 	const getProductOnCart = useSelector((state) => cart.selectById(state, id));
 	const dispatch = useDispatch();
 	const [ref, isHovered] = useHover();
+
 	// check if product already exist in the cart.
 	let idAlreadyExists = cartProductsList.find((product) => product.id == id);
 
@@ -66,6 +66,7 @@ export default function Product({ products }) {
 				thumbnail={require(`../../../../Assets/Products/${products.sku}.png`)}
 				{...products}>
 				<ProductButtons
+					item={products}
 					idAlreadyExists={idAlreadyExists}
 					handleViewProduct={() => dispatch(isToggle(true))}
 					handleAddProduct={() => addItemToCart(products)}
