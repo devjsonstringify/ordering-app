@@ -1,3 +1,9 @@
+<p align="center">
+	  <img src="./Docs/screenshot/screenshot_A.jpg">
+	  <img src="./Docs/screenshot/screenshot_B.jpg">
+	  <img src="./Docs/screenshot/screenshot_C.jpg">
+</p>
+
 ## Basic Overview - [Live Demo](https://menu-cart-order.netlify.app/)
 
 Hi random guy on the internet, I present to you my ordering application where customers select food/items then proceed to checkout and see the receipt instantly with complete details of the order. My inspiration for this is a Japanese restaurant I visited months ago. In the restaurant, the customer will just wait for a vacant table then get the order on the iPad (IPad already prepare on the table) then start ordering that it. The experience was simple and efficient no need for help otherwise you’re having trouble with it, so I decided to build this application to implement what I had experienced and to improve my skills on react.js and ecosystem, and I’m proud of it.
