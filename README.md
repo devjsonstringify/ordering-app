@@ -21,12 +21,12 @@ Hi random guy on the internet, I present to you my ordering application where cu
 - [x] Persist data on page reloads in particular float cart and transaction id
 - [x] Firebase integration
 - [x] Product cart notifier
-- [] Responsive design
-- [] Soon: Unit tests, integration tests, all sort of test.
+- [ ] Responsive design
+- [ ] Soon: Unit tests, integration tests, all sort of test.
 
 ## Technology
 
-- react 
+- react
 - redux-toolkit
 - sass
 - firebase
