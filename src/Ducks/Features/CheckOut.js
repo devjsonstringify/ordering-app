@@ -8,6 +8,7 @@ const CheckOut = createSlice({
 	initialState: CheckOutAdapter.getInitialState({
 		isSubmit: false,
 		transactionId: '',
+		notifier: false,
 	}),
 	reducers: {
 		checkOutIsSubmit: (state, action) => {
@@ -15,6 +16,9 @@ const CheckOut = createSlice({
 		},
 		getTransactionId: (state, action) => {
 			state.transactionId = action.payload;
+		},
+		setBillNotify: (state, action) => {
+			state.notifier = action.payload;
 		},
 		deleteAllCheckOutDetails: CheckOutAdapter.removeAll,
 	},
@@ -25,5 +29,6 @@ export const {
 	setCheckoutOrders,
 	getTransactionId,
 	deleteAllCheckOutDetails,
+	setBillNotify,
 } = CheckOut.actions;
 export default CheckOut.reducer;
