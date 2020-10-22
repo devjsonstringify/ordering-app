@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { fromUnixTime, format } from 'date-fns';
-import { isEmpty, isUndefined } from 'lodash';
 
 export default function Header({ details }) {
+	console.log(details);
 	return (
 		<div className='bill_header'>
 			<div>
@@ -29,6 +28,10 @@ export default function Header({ details }) {
 		</div>
 	);
 }
+
 Header.propTypes = {
-	props: PropTypes.object,
+	props: PropTypes.shape({
+		transaction: PropTypes.string,
+		timeStamp: PropTypes.string,
+	}),
 };

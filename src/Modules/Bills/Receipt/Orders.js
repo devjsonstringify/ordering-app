@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { flattenDeep } from 'lodash';
+import flattenDeep from 'lodash/flattenDeep';
 import PropTypes from 'prop-types';
 
 // import local files
