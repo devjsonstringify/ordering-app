@@ -14,6 +14,7 @@ import { isToggle } from '../../../Ducks/Features/SideBar.js';
 import {
 	checkOutIsSubmit,
 	getTransactionId,
+	setBillNotify,
 } from '../../../Ducks/Features/CheckOut.js';
 
 export default function Checkout() {
@@ -35,6 +36,7 @@ export default function Checkout() {
 	}, 0);
 
 	useEffect(() => {
+		dispatch(setBillNotify(false));
 		if (productsOnCart.length > 0) {
 			setCheckoutDetails({
 				...checkoutDetails,
