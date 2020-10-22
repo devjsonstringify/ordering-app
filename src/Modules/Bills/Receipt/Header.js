@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Header({ transaction }) {
+export default function Header({ details }) {
+	console.log(details);
 	return (
 		<div className='bill_header'>
 			<div>
@@ -12,9 +13,13 @@ export default function Header({ transaction }) {
 					101 Stadium Area #773-54-55 Northern Direction Hidden Games Leaf
 					Village, Planet Earth 98000
 				</address>
-				<p className='text-center'>
-					Term ID-transaction #:{' '}
-					<span className='font-weight-bolder'>{transaction}</span>
+				<p className='text-left'>
+					Transaction number:{' '}
+					<span className='font-weight-bolder'>{details.transaction}</span>
+				</p>
+				<p className='text-left'>
+					Served by:{' '}
+					<span className='font-weight-bolder'>{details.timeStamp}</span>
 				</p>
 			</div>
 			<div className='my p-3 text-center'>
@@ -23,6 +28,10 @@ export default function Header({ transaction }) {
 		</div>
 	);
 }
+
 Header.propTypes = {
-	props: PropTypes.object,
+	props: PropTypes.shape({
+		transaction: PropTypes.string,
+		timeStamp: PropTypes.string,
+	}),
 };

@@ -17,14 +17,15 @@ import {
 } from '../../../Ducks/Features/CheckOut.js';
 
 export default function Checkout() {
+	const firebase = useFirebase();
 	const [checkoutDetails, setCheckoutDetails] = useState({
 		orders: [],
 		subTotal: null,
 		taxRate: 0.025,
 		tax: null,
 		total: null,
+		startedAt: firebase.database.ServerValue.TIMESTAMP,
 	});
-	const firebase = useFirebase();
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const [wasSent, updateSentState] = useState('idle');
