@@ -1,5 +1,5 @@
 import React from 'react';
-import { flatMapDeep } from 'lodash';
+import flatMapDeep from 'lodash/flatMapDeep';
 import PropTypes from 'prop-types';
 
 export default function Total(props) {

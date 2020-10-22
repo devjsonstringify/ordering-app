@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { isEmpty, isUndefined, toNumber } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
+import isUndefined from 'lodash/isUndefined';
+import toNumber from 'lodash/toNumber';
 import format from 'date-fns/format';
 import isValid from 'date-fns/isValid';
 
@@ -15,6 +17,7 @@ export default function Receipt(props) {
 	const checkout = { ...props };
 	const mapProps = !isEmpty(checkout) && Object.values(checkout);
 	let orders = mapProps.map(({ value }) => value.orders);
+
 	const totals = mapProps.map(({ value }) => {
 		return {
 			subTotal: value.subTotal,
