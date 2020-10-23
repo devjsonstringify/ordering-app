@@ -37,8 +37,9 @@ Hi random guy on the internet, I present to you my ordering application where cu
 
 ## How to use?
 
-To run this repo locally you need to run the following command.
+I used firebase real-time database for this application, make sure you have firebase set up locally or you can read the [docs](https://firebase.google.com/docs/web/setup) more for details. Make sure also you have the Node.js and NPM installed on your computer.
 
+To run this repo locally you need to run the following command.
 First, Install the needed packages
 
 ```
@@ -51,8 +52,6 @@ Then start create-react-app
 npm start
 ```
 
-Make sure you have the Node.js and NPM installed on your computer.
-
 ## Contact
 
-Are you interested in collaborating with me? please fire your email at dev.json.stringify@gmail.com
+Are you interested in collaborating with me? send me an email at dev.json.stringify@gmail.com
