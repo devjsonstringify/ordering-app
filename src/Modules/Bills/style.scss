@@ -5,9 +5,9 @@ $accent-C: #000000;
 body.bills {
 	background: $accent-B !important;
 }
-.bill_header,
-.border-top,
-.order_total {
+.order_receipt .bill_header,
+.order_receipt .border-top,
+.order_receipt .order_total {
 	border: 2px dashed $accent-C;
 	padding: 1em;
 	box-sizing: border-box;
