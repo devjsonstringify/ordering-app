@@ -22,18 +22,23 @@ Hi random guy on the internet, I present to you my ordering application where cu
 - [x] Persist data on page reloads in particular float cart and transaction id
 - [x] Firebase integration
 - [x] Product cart notifier
+- [x] Cart product quantity control ( increment and decrement )
 - [ ] Responsive
 - [ ] Customer can edit/update current order after checkout submission
 - [ ] Customer can make payment
+- [ ] User authentication
+- [ ] Skeleton loader
 - [ ] Soon: Unit tests, integration tests, all sort of test.
 
 ## Technology
 
 - react
+- create-react-app
 - redux-toolkit
+- persist-data
+- react-router
 - sass
 - firebase
-- create-react-app
 
 ## How to use?
 
@@ -54,4 +59,4 @@ npm start
 
 ## Contact
 
-Are you interested in collaborating with me? send me an email at dev.json.stringify@gmail.com
+Are you interested in collaborating with me? At the moment I don't know about testing yet but it's already on my bucket list, so yeah if you have knowledge and experience at testing thingy I love talking to you send me an email at dev.json.stringify@gmail.com
