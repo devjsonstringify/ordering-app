@@ -2,6 +2,7 @@
 	  <img src="./Docs/screenshot/screenshot_A.jpg">
 	  <img src="./Docs/screenshot/screenshot_B.jpg">
 	  <img src="./Docs/screenshot/screenshot_C.jpg">
+	  <img src="./Docs/screenshot/screen-capture.gif">
 </p>
 
 ## Pagkaon - ordering application
@@ -21,7 +22,9 @@ Hi random guy on the internet, I present to you my ordering application where cu
 - [x] Persist data on page reloads in particular float cart and transaction id
 - [x] Firebase integration
 - [x] Product cart notifier
-- [ ] Responsive design
+- [ ] Responsive
+- [ ] Customer can edit/update current order after checkout submission
+- [ ] Customer can make payment
 - [ ] Soon: Unit tests, integration tests, all sort of test.
 
 ## Technology
@@ -34,11 +37,7 @@ Hi random guy on the internet, I present to you my ordering application where cu
 
 ## How to use?
 
-To run this repo locally you need to run the following.
-
-Requirements
-Node.js
-NPM
+To run this repo locally you need to run the following command.
 
 First, Install the needed packages
 
@@ -51,6 +50,8 @@ Then start create-react-app
 ```
 npm start
 ```
+
+Make sure you have the Node.js and NPM installed on your computer.
 
 ## Contact
 
