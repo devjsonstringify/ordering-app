@@ -1,0 +1,21 @@
+$accent-A: #ffffff;
+$accent-B: #e7201f;
+$accent-C: #000000;
+
+body.bills {
+	background: $accent-B !important;
+}
+.bill_header,
+.border-top,
+.order_total {
+	border: 2px dashed $accent-C;
+	padding: 1em;
+	box-sizing: border-box;
+}
+.bill_header {
+	background-color: $accent-B;
+	color: $accent-A;
+}
+.order_total {
+	margin-bottom: 1em;
+}
