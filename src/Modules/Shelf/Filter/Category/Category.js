@@ -21,7 +21,9 @@ export default function Category(props) {
 			onClick={props.handleClick}>
 			<div
 				className={
-					isActive ? `p-1 border-white ${style.item__background}` : 'p-1'
+					isActive
+						? `p-1 border-white ${style.item__background} d-none d-sm-block d-none`
+						: 'p-1 d-sm-block d-none'
 				}>
 				<Thumb size='msmall' thumbnail={darkImage} />
 			</div>

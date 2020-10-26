@@ -24,7 +24,7 @@ export default function Navigation() {
 	}, [cart]);
 
 	return (
-		<div className='col row d-flex justify-content-between container navigation'>
+		<div className='col row d-flex  justify-content-sm-between  container navigation'>
 			<nav className='navbar navbar-light bg-light col col-md-4 h-100'>
 				<div className='container-fluid'>
 					<Link className='navbar-brand' to='/'>
@@ -32,7 +32,7 @@ export default function Navigation() {
 					</Link>
 				</div>
 			</nav>
-			<nav className='menu-items d-flex text-center col col-md-3 offset-md-4 justify-content-end mr-5 h-100'>
+			<nav className='menu-items d-flex align-items-baseline text-center col col-md-3 offset-sm-4 justify-content-sm-end justify-content-center mr-sm-5 mr-0 h-100'>
 				{menus.map((menu) => (
 					<MenuItem key={menu.item} {...menu} />
 				))}

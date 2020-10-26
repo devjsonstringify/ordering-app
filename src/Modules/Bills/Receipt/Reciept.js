@@ -59,11 +59,13 @@ export default function Receipt(props) {
 	}, [props]);
 
 	return (
-		<div className='order_receipt col-6'>
-			<Header details={headerDetails} />
-			<Orders products={orders} />
-			<Total {...totals} />
-			<Footer {...checkout} />
+		<div className='row justify-content-center'>
+			<div className='order_receipt col-sm-auto col-md-auto col-lg-6 col-12'>
+				<Header details={headerDetails} />
+				<Orders products={orders} />
+				<Total {...totals} />
+				<Footer {...checkout} />
+			</div>
 		</div>
 	);
 }
