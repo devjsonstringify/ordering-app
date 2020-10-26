@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // import local files
+import './style.scss';
 import Product from './Product';
 import ShellHeader from '../ShellHeader/ShellHeader';
 

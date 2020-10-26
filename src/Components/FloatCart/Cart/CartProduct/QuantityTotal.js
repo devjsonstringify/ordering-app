@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function QuantityTotal({ amount, classes }) {
-	let style = ['cart-amount'];
+	let style = ['cart-amount', 'd-sm-block d-none'];
 	style.push(classes);
 	return (
 		<div className={style.join(' ')}>

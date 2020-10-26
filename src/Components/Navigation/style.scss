@@ -30,3 +30,9 @@ $base-color-text: #bcc2d0;
 		}
 	}
 }
+
+@media (max-width: 575.98px) {
+	.navbar-brand > h2 {
+		font-size: 100%;
+	}
+}

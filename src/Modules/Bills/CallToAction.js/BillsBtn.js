@@ -15,7 +15,7 @@ export default function BillsBtn({
 	return (
 		<Button style={style} handleClick={handleClick}>
 			{' '}
-			<p className='m-0'>
+			<p className='m-auto d-flex flex-sm-column flex-row align-items-center'>
 				{icon ? (
 					<span>
 						<svg

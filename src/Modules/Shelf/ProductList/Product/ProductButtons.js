@@ -29,7 +29,7 @@ export default function ProductButtons({
 	return (
 		<>
 			{idAlreadyExists ? (
-				<div className='d-flex justify-content-center my-2 products_buttons'>
+				<div className='d-flex justify-content-center my-2 products_buttons flex-sm-row flex-column'>
 					<Button
 						style='d-block w-auto btn-lg m-1 rounded-0'
 						handleClick={() => {
