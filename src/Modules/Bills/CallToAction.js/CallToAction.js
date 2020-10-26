@@ -6,13 +6,13 @@ import BillsBtn from './BillsBtn.js';
 
 export default function CallToAction() {
 	return (
-		<div className='col-6 soon-more-action mt-4'>
-			<div className='d-flex justify-content-between'>
+		<div className='col-12 soon-more-action mt-4'>
+			<div className='d-flex justify-content-between flex-sm-row flex-column'>
 				<BillsBtn
 					text='edit order'
 					icon='bi-pencil'
 					color='#007bff'
-					style='btn-outline-primary d-flex align-items-center btn-lg shadow-lg'
+					style='btn-outline-primary d-flex align-items-center btn-lg shadow-lg col-sm-3 col-12 mb-3 '
 					path={
 						<path
 							fillRule='evenodd'
@@ -25,7 +25,7 @@ export default function CallToAction() {
 					text='new order'
 					icon='bi-plus-circle-fill'
 					color='#007bff'
-					style='btn-outline-primary d-flex align-items-center btn-lg shadow-lg'
+					style='btn-outline-primary d-flex align-items-center btn-lg shadow-lg col-sm-3 col-12 mb-3'
 					path={
 						<path
 							fillRule='evenodd'
@@ -38,7 +38,7 @@ export default function CallToAction() {
 					text='paynow'
 					color='#007bff'
 					icon='bi-arrow-right'
-					style='btn-outline-primary d-flex align-items-center btn-lg shadow-lg'
+					style='btn-outline-primary d-flex align-items-center btn-lg shadow-lg  col-sm-3 col-12 mb-3'
 					path={
 						<>
 							<path d='M14 3H1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1h-1z' />

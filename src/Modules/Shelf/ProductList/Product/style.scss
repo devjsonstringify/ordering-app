@@ -105,3 +105,9 @@ $base-color-gray: #bcc2d0;
 		flex: 0 1 44%;
 	}
 }
+
+@media (max-width: 480px) {
+	.product_listing {
+		flex: 0 1 43%;
+	}
+}

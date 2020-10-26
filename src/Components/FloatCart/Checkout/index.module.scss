@@ -38,3 +38,10 @@ $base-color-text: #bcc2d0;
 		}
 	}
 }
+
+@media (max-width: 576px) {
+	.cartTotal h4 {
+		line-height: 2.5rem;
+		font-size: 100%;
+	}
+}
