@@ -20,13 +20,14 @@ $base-color-text: #bcc2d0;
 }
 
 .menu-items {
+	margin-right: 3.75em;
 	a {
 		color: $base-color-text;
+		color: $base-color-text;
+		font-family: 'Roboto Mono', monospace;
 		&.active {
 			background-color: $base-color-active;
-			p {
-				color: $base-color;
-			}
+			color: $base-color;
 		}
 	}
 }
@@ -34,5 +35,10 @@ $base-color-text: #bcc2d0;
 @media (max-width: 575.98px) {
 	.navbar-brand > h2 {
 		font-size: 100%;
+	}
+	.cart-mobile {
+		position: absolute;
+		right: 1.5em;
+		top: 0;
 	}
 }

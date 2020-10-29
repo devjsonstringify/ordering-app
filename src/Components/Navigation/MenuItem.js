@@ -9,9 +9,9 @@ export default function MenuItem({ href, item }) {
 	return (
 		<NavLink
 			to={href}
-			className='text-decoration-none mx-3 p-3'
+			className='text-capitalize text-decoration-none px-2 py-3 mr-3'
 			exact={href == '/' ? true : false}>
-			<p className='m-auto'>{item}</p>
+			{item}
 		</NavLink>
 	);
 }

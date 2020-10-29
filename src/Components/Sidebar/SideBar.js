@@ -34,7 +34,7 @@ export default function SideBar() {
 			)}
 			{!isOpen && (
 				<span
-					className='bag bag--float-cart-closed'
+					className='bag bag--float-cart-closed d-sm-block d-none'
 					onClick={() => dispatch(isToggle(true))}>
 					<span className='bag__quantity'>{productsOnCart.length}</span>
 				</span>
