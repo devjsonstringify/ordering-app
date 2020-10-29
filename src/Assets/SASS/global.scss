@@ -1,18 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Roboto+Mono&display=swap');
-@import '../../../node_modules/bootstrap/scss/bootstrap';
-
-$background-body: #fafafa;
-$background-accent: #e7201f;
+@import '../SASS/override-variables.scss';
 
 html,
 body,
 #root {
 	height: 100%;
-	background-color: $background-body;
-	font-family: 'Roboto Mono', monospace;
+	background-color: $bg-light;
+	@include font-family-primary;
 }
 
 // progress bar
 .Toastify__progress-bar--default.custom_progress {
-	background: $background-accent;
+	background-color: $primary;
 }

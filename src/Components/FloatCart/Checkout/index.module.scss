@@ -1,16 +1,14 @@
-$base-color-bg: #ffffff;
-$base-color-red: #ff2351;
-$base-color-text: #bcc2d0;
+@import '../../../Assets/SASS/override-variables.scss';
 
 .checkout {
 	position: relative;
 	width: 100%;
-	background-color: $base-color-bg;
+	background-color: $bg-white;
 	border-top: 1px dashed;
-	color: $base-color-text;
+	color: $text-secondary;
 
 	tbody {
-		color: $base-color-text;
+		color: $text-secondary;
 	}
 
 	.cartTotal {
@@ -19,15 +17,13 @@ $base-color-text: #bcc2d0;
 
 		button {
 			h4 {
-				color: $base-color-bg;
-				background-color: $base-color-red;
-				box-shadow: 2px 0px 39px -14px rgba(255, 35, 81, 0.57);
-				-webkit-box-shadow: 2px 0px 39px -14px rgba(255, 35, 81, 0.57);
-				-moz-box-shadow: 2px 0px 39px -14px rgba(255, 35, 81, 0.57);
+				color: $bg-white;
+				background-color: $primary;
+				box-shadow: 2px 0px 39px -14px rgba($primary, 0.57);
 				line-height: 4rem;
 
 				span {
-					color: $base-color-bg;
+					color: $bg-white;
 
 					img {
 						width: 35px;

@@ -1,17 +1,17 @@
-$base-color: #000000;
-$base-color-bg: #ffffff;
+@import '../../../Assets/SASS/override-variables.scss';
+
 .search {
 	&:focus {
 		border: 0;
 	}
 	outline: 0;
-	color: $base-color;
+	color: $text-primary;
 	font-size: 1.25rem;
 	font-weight: 700;
 
 	option {
-		background-color: $base-color-bg;
-		color: $base-color;
+		background-color: $bg-white;
+		color: $text-primary;
 		border: 0;
 		outline: none;
 		font-size: 1.25rem;
