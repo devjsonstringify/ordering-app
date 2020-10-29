@@ -1,6 +1,6 @@
-$base-color: #202020;
+@import '../../Assets/SASS/override-variables.scss';
 
 .name {
-	color: $base-color;
+	color: $accent-secondary;
 	text-transform: capitalize;
 }

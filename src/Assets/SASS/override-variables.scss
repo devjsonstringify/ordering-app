@@ -1,0 +1,21 @@
+// override bootstrap default
+$primary: #e7201f;
+$bg-white: #ffffff;
+$bg-light: #fafafa;
+$bg-secondary: #a6aab3;
+$text-primary: #000000;
+$text-secondary: #bcc2d0;
+
+@import 'bootstrap/scss/bootstrap';
+
+// variables
+$accent-primary: #feda6c;
+$accent-secondary: #202020;
+$radius-primary: 25px 25px 25px 25px;
+
+@mixin font-family-primary {
+	font-family: 'Roboto Mono', monospace;
+}
+@mixin font-family-secondary {
+	font-family: 'Bungee', cursive;
+}
