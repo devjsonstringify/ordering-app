@@ -23,21 +23,23 @@ export default function CategoriesList() {
 	const dispatch = useDispatch();
 
 	return (
-		<div className={`product-categories d-flex flex-wrap mb-4`}>
-			{products.map((item) => {
-				return (
-					<Category
-						key={item.visibility}
-						{...item}
-						handleClick={(e) => {
-							e.preventDefault;
-							setIsActive(item.visibility);
-							dispatch(setVisibilityFilter(item.visibility));
-						}}
-						btn={isActive}
-					/>
-				);
-			})}
+		<div className='container product-categories '>
+			<div className={`row `}>
+				{products.map((item) => {
+					return (
+						<Category
+							key={item.visibility}
+							{...item}
+							handleClick={(e) => {
+								e.preventDefault;
+								setIsActive(item.visibility);
+								dispatch(setVisibilityFilter(item.visibility));
+							}}
+							btn={isActive}
+						/>
+					);
+				})}
+			</div>
 		</div>
 	);
 }

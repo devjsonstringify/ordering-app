@@ -102,15 +102,24 @@
 		opacity: 1;
 	}
 }
-
-@media (max-width: 576px) {
+@media (max-width: 575px) {
+	.product_listing {
+		flex: 0 1 100%;
+	}
+}
+@media (min-width: 576px) and (max-width: 992px) {
 	.product_listing {
 		flex: 0 1 44%;
 	}
 }
-
-@media (max-width: 480px) {
+@media (min-width: 993px) and (max-width: 1200px) {
 	.product_listing {
-		flex: 0 1 43%;
+		flex: 0 1 22%;
+	}
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+	.product_listing {
+		flex: 0 1 22%;
 	}
 }

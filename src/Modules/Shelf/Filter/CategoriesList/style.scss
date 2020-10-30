@@ -1,3 +1,14 @@
 .product-categories {
 	justify-content: space-between;
 }
+
+@media (max-width: 576px) {
+	.product-categories {
+		& .row {
+			& div {
+				flex-grow: 0;
+				flex-basis: 30%;
+			}
+		}
+	}
+}
