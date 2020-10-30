@@ -12,23 +12,20 @@ export default function Category(props) {
 	const darkImage = isActive
 		? require(`../../../../Assets/Icons/${newProps.toLowerCase()}.png`)
 		: require(`../../../../Assets/Icons/dark/${newProps.toLowerCase()}.png`);
-	// const isBtn = props.btn.slice(5) === newProps ? `py-4 bg-light` : 'py-4';
 	return (
 		<div
-			className={` d-flex flex-column p-3  ${style.item} ${
+			className={`col mr-2 p-3 d-flex flex-column ${style.item} ${
 				props.btn.slice(5) === newProps ? `${style.item__active}` : ''
 			}`}
 			onClick={props.handleClick}>
 			<div
 				className={
-					isActive
-						? `p-1 border-white ${style.item__background} d-none d-sm-block d-none`
-						: 'p-1 d-sm-block d-none'
+					isActive ? `p-1 border-white ${style.item__background}` : 'p-1 '
 				}>
 				<Thumb size='msmall' thumbnail={darkImage} />
 			</div>
 			<h6
-				className={`text-center text-capitalize my-3 ${
+				className={`text-center text-capitalize my-3 d-md-block d-none ${
 					isActive ? 'text-body' : ' '
 				}`}>
 				{newProps.toLowerCase()}
