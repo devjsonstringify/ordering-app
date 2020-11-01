@@ -91,22 +91,24 @@ export default function Checkout() {
 	const { subTotal, tax, total } = checkoutDetails;
 
 	return (
-		<div className={`mt-5 h-25 p-4 ${style.checkout}`}>
-			<div className='cart-taxes '>
-				<h3 className='text-body'>Order Summary</h3>
+		<div className={`mt-5 ${style.checkout}`}>
+			<div className='cart-taxes mt-5'>
+				<h3 className='text-body text-left p-2'>Order Summary</h3>
 				<table className='table table-borderless'>
 					<tbody>
 						<tr>
 							<td>Sub Total</td>
-							<td className='text-body'>${subTotal}</td>
+							<td className='text-body text-right'>${subTotal}</td>
 						</tr>
 						<tr>
 							<td>Tax rate (2.5%)</td>
-							<td className='text-body'>${tax}</td>
+							<td className='text-body text-right'>${tax}</td>
 						</tr>
 						<tr className='border-top'>
 							<td className='h4 text-body font-weight-bold'>Total</td>
-							<td className='h4 text-body font-weight-bold'>${total}</td>
+							<td className='h4 text-body font-weight-bold text-right'>
+								${total}
+							</td>
 						</tr>
 					</tbody>
 				</table>
