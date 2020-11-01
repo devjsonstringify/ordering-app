@@ -32,13 +32,6 @@ export default function SideBar() {
 					X
 				</div>
 			)}
-			{!isOpen && (
-				<span
-					className='bag bag--float-cart-closed'
-					onClick={() => dispatch(isToggle(true))}>
-					<span className='bag__quantity'>{productsOnCart.length}</span>
-				</span>
-			)}
 			{!!isOpen && productsOnCart.length > 0 && <FloatCart />}
 			{!!isOpen && productsOnCart.length < 1 && <EmptyCart />}
 		</div>

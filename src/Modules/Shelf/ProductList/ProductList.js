@@ -11,7 +11,7 @@ export default function ProductList({ products }) {
 	return (
 		<>
 			<ShellHeader quantity={products.length} />
-			<div className='products d-flex flex-wrap '>
+			<div className='products d-flex flex-wrap justify-content-lg-start justify-content-between'>
 				{products.map((product) => (
 					<Product key={Math.random()} products={product} />
 				))}

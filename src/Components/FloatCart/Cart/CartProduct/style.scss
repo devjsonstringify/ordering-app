@@ -1,4 +1,4 @@
-$base-color-red: #ff2351;
+@import '../../../../Assets/SASS/override-variables.scss';
 
 .product {
 	position: relative;
@@ -41,21 +41,21 @@ $base-color-red: #ff2351;
  */
 @-webkit-keyframes shadow-drop-bottom {
 	0% {
-		-webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+		-webkit-box-shadow: 0 0 0 0 rgba($text-primary, 0);
 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 	}
 	100% {
-		-webkit-box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
-		box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+		-webkit-box-shadow: 0 12px 20px -12px rgba($text-primary, 0.35);
+		box-shadow: 0 12px 20px -12px rgba($text-primary, 0.35);
 	}
 }
 @keyframes shadow-drop-bottom {
 	0% {
-		-webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+		-webkit-box-shadow: 0 0 0 0 rgba($text-primary, 0);
+		box-shadow: 0 0 0 0 rgba($text-primary, 0);
 	}
 	100% {
-		-webkit-box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
-		box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+		-webkit-box-shadow: 0 12px 20px -12px rgba($text-primary, 0.35);
+		box-shadow: 0 12px 20px -12px rgba($text-primary, 0.35);
 	}
 }

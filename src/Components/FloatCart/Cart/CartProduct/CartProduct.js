@@ -71,7 +71,7 @@ export default function Product({ product }) {
 						}
 						minimumProduct={minimumProduct}
 						quantity={quantity}
-						classes='d-flex justify-content-around align-items-center col flex-grow-1 '
+						classes='d-flex justify-content-sm-end justify-content-start align-items-center col flex-grow-1 pl-sm-auto pl-0'
 					/>
 					{!isSubmit ? (
 						<button

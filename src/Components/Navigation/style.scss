@@ -1,6 +1,4 @@
-$base-color: #ffffff;
-$base-color-active: #e7201f;
-$base-color-text: #bcc2d0;
+@import '../../Assets/SASS/override-variables.scss';
 
 .navbar {
 	.navbar-brand img {
@@ -8,25 +6,26 @@ $base-color-text: #bcc2d0;
 		height: 80px;
 	}
 	a {
-		font-family: 'Bungee', cursive;
+		@include font-family-secondary;
 	}
 }
 .navigation {
 	height: 100%;
 	text-transform: capitalize;
 	svg {
-		fill: $base-color-text;
+		fill: $text-secondary;
 	}
 }
 
 .menu-items {
+	margin-right: 3em;
 	a {
-		color: $base-color-text;
+		color: $text-secondary;
+		color: $text-secondary;
+		@include font-family-primary;
 		&.active {
-			background-color: $base-color-active;
-			p {
-				color: $base-color;
-			}
+			background-color: $primary;
+			color: $bg-white;
 		}
 	}
 }
@@ -34,5 +33,11 @@ $base-color-text: #bcc2d0;
 @media (max-width: 575.98px) {
 	.navbar-brand > h2 {
 		font-size: 100%;
+	}
+
+	.cart-mobile {
+		position: absolute;
+		right: 1.5em;
+		top: 0;
 	}
 }

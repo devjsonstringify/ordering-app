@@ -1,7 +1,14 @@
-$base-color: #bcc2d0;
-$base-color-bg: #feda6c;
-$radius: 25px 25px 25px 25px;
-
 .product-categories {
 	justify-content: space-between;
+}
+
+@media (max-width: 576px) {
+	.product-categories {
+		& .row {
+			& div {
+				flex-grow: 0;
+				flex-basis: 30%;
+			}
+		}
+	}
 }

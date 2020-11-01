@@ -22,7 +22,7 @@ export default function Quantity({
 		<div className={style.join(' ')}>
 			{!isSubmit ? (
 				<Button
-					style='btn-light mx-1'
+					style='btn-light mx-sm-1 mx-0'
 					disabled={minimumProduct}
 					handleClick={handleDecrementQuantity}>
 					<span className='text-body h4'>-</span>
@@ -33,7 +33,9 @@ export default function Quantity({
 				isSubmit ? `Quantity ${quantity}` : `X ${quantity}`
 			}`}</h5>
 			{!isSubmit ? (
-				<Button style='btn-light mx-1' handleClick={handleIncrementQuantity}>
+				<Button
+					style='btn-light mx-sm-1 mx-0'
+					handleClick={handleIncrementQuantity}>
 					<span className='text-body h4'>+</span>
 				</Button>
 			) : null}

@@ -1,6 +1,4 @@
-$base-color: #ffffff;
-$base-color-btn: #ff2351;
-$base-color-gray: #bcc2d0;
+@import '../../../../Assets/SASS/override-variables.scss';
 
 @-webkit-keyframes fade-in {
 	0% {
@@ -23,7 +21,12 @@ $base-color-gray: #bcc2d0;
 	// background-color: $base-color;
 	flex: 0 1 23%;
 	margin: 0.8rem;
-	background-color: $base-color;
+	background-color: $bg-white;
+
+	h5,
+	h6 {
+		text-align: center;
+	}
 
 	&.d-block {
 		animation: slide-in-bck-center 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -38,25 +41,25 @@ $base-color-gray: #bcc2d0;
 	& div:first-child {
 		width: 100%;
 		min-height: 100px;
-		background-color: $base-color;
+		background-color: $bg-white;
 		padding: 1em;
 		box-sizing: border-box;
 	}
 
 	.products_buttons {
 		& button:first-child {
-			background-color: $base-color;
-			border: 2px solid $base-color-btn;
+			background-color: $bg-white;
+			border: 2px solid $primary;
 			& span {
-				color: $base-color-btn;
+				color: $primary;
 			}
 		}
 	}
 	button {
-		background-color: $base-color-btn;
+		background-color: $primary;
 
 		span {
-			color: $base-color;
+			color: $bg-white;
 			font-size: 0.9rem;
 			text-transform: capitalize;
 		}
@@ -99,15 +102,24 @@ $base-color-gray: #bcc2d0;
 		opacity: 1;
 	}
 }
-
-@media (max-width: 576px) {
+@media (max-width: 575px) {
+	.product_listing {
+		flex: 0 1 100%;
+	}
+}
+@media (min-width: 576px) and (max-width: 992px) {
 	.product_listing {
 		flex: 0 1 44%;
 	}
 }
-
-@media (max-width: 480px) {
+@media (min-width: 993px) and (max-width: 1200px) {
 	.product_listing {
-		flex: 0 1 43%;
+		flex: 0 1 22%;
+	}
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+	.product_listing {
+		flex: 0 1 22.6%;
 	}
 }

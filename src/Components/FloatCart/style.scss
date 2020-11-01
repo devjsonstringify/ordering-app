@@ -1,19 +1,16 @@
-$base-color: #ffffff;
-$base-color-bag: #e7201f;
-$base-color-text: #bcc2d0;
-$base-color-badge: #e6a744;
-$base-color-black: #000000;
+@import '../../Assets/SASS/override-variables.scss';
 
 .float_cart {
 	position: fixed;
 	top: 0;
-	right: calc(-100vw / 4);
-	width: calc(100vw / 4);
+	right: calc(-100% - 25%);
+	width: calc(100% - 75%);
 	height: 100%;
-	background-color: $base-color;
+	background-color: $bg-white;
 	box-sizing: border-box;
 	transition: right 0.2s;
-	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2), 0 0px 15px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 3px 20px rgba($text-primary, 0.2),
+		0 0px 15px rgba($text-primary, 0.05);
 
 	&--open {
 		right: 0;
@@ -22,8 +19,8 @@ $base-color-black: #000000;
 	&--close-btn {
 		width: 50px;
 		height: 50px;
-		color: $base-color;
-		background-color: $base-color-bag;
+		color: $bg-white;
+		background-color: $primary;
 		text-align: center;
 		line-height: 50px;
 		position: absolute;
@@ -32,7 +29,7 @@ $base-color-black: #000000;
 		cursor: pointer;
 
 		&:hover {
-			background-color: $base-color-text;
+			background-color: $bg-secondary;
 		}
 	}
 
@@ -50,13 +47,13 @@ $base-color-black: #000000;
 
 		&--float-cart-closed {
 			position: absolute;
-			background-color: $base-color-bag;
+			background-color: $primary;
 			background-size: 50%;
 			left: -60px;
 			width: 60px;
 			height: 60px;
 			cursor: pointer;
-			box-shadow: 2px 0px 39px -14px rgba(255, 35, 81, 0.57);
+			box-shadow: 2px 0px 39px -14px rgba($primary, 0.57);
 
 			.bag__quantity {
 				bottom: 5px;
@@ -68,13 +65,13 @@ $base-color-black: #000000;
 			display: inline-block;
 			width: 18px;
 			height: 18px;
-			color: $base-color-black;
+			color: $text-primary;
 			font-weight: bold;
 			font-size: 0.7em;
 			text-align: center;
 			line-height: 18px;
 			border-radius: 50%;
-			background-color: $base-color-badge;
+			background-color: $accent-primary;
 			position: absolute;
 			bottom: -5px;
 			right: 0px;
@@ -87,12 +84,14 @@ $base-color-black: #000000;
 	height: 100%;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 1400px) {
 	.float_cart {
-		right: calc(-80%);
-		width: calc(100% - 20%);
-		&--open {
-			right: 0;
-		}
+		width: calc(100% - 50%);
+	}
+}
+
+@media (max-width: 768px) {
+	.float_cart {
+		width: calc(100% - 25%);
 	}
 }
