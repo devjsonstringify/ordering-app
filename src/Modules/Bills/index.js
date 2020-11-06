@@ -1,2 +1,3 @@
-import Bills from './Bills.js';
+import Bills from './Bills';
+
 export default Bills;

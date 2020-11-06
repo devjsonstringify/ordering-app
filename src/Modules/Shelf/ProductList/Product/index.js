@@ -1,2 +1,3 @@
-import Product from './Product.js';
+import Product from './Product';
+
 export default Product;
