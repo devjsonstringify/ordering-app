@@ -47,7 +47,7 @@ export default function Product({ product }) {
         <Card
           rowPos="flex-fill d-flex "
           shape="square"
-          size="xsmall"
+          size="large"
           // eslint-disable-next-line import/no-dynamic-require
           thumbnail={require(`../../../../Assets/Products/${sku}.png`)}
           {...{ id, name, price, sku }}
