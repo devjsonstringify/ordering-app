@@ -1,2 +1,3 @@
-import Receipt from './Reciept.js';
+import Receipt from './Reciept';
+
 export default Receipt;

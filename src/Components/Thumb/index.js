@@ -1,2 +1,3 @@
-import Thumb from './Thumb.js';
+import Thumb from './Thumb';
+
 export default Thumb;

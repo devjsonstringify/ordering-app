@@ -1,2 +1,3 @@
-import { Category } from './Category.js';
-export { Category };
+import Category from './Category';
+
+export default Category;

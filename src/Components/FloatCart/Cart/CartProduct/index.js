@@ -1,2 +1,3 @@
-import Product from './CartProduct.js';
+import Product from './CartProduct';
+
 export default Product;

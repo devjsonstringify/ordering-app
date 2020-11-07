@@ -1,2 +1,3 @@
-import Shelf from './Shelf.js';
+import Shelf from './Shelf';
+
 export default Shelf;

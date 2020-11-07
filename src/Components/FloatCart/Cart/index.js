@@ -1,2 +1,3 @@
-import Cart from './Cart.js';
+import Cart from './Cart';
+
 export default Cart;

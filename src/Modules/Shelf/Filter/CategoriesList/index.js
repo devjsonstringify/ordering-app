@@ -1,2 +1,3 @@
-import CategoriesList from './CategoriesList.js';
+import CategoriesList from './CategoriesList';
+
 export default CategoriesList;
