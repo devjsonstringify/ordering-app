@@ -12,7 +12,6 @@ export default function SearchProduct() {
 	const handleClearBtn = () => {
 		setIsQuery('');
 		dispatch(getProductQuery(''));
-		console.log(isQuery);
 	};
 
 	const handleChangeBar = (e) => {
