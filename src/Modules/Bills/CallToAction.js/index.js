@@ -1,2 +1,3 @@
-import CallToAction from './CallToAction.js';
+import CallToAction from './CallToAction';
+
 export default CallToAction;
