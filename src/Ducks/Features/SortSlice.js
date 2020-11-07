@@ -1,18 +1,19 @@
+/* eslint-disable no-param-reassign */
 // import react library
 import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
-	type: '',
+  type: '',
 };
 
 const sortSlice = createSlice({
-	name: 'sort',
-	initialState,
-	reducers: {
-		updateSort: (state, action) => {
-			state.type = action.payload;
-		},
-	},
+  name: 'sort',
+  initialState,
+  reducers: {
+    updateSort: (state, action) => {
+      state.type = action.payload;
+    },
+  },
 });
 
 export const { updateSort } = sortSlice.actions;

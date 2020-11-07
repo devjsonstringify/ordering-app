@@ -1,2 +1,3 @@
-import CartIcon from './CartIcon.js';
+import CartIcon from './CartIcon';
+
 export default CartIcon;

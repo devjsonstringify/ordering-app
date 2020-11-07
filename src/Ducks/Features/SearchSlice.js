@@ -1,18 +1,19 @@
+/* eslint-disable no-param-reassign */
 // import react library
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	query: '',
+  query: '',
 };
 
 const querySlice = createSlice({
-	name: 'searchQuery',
-	initialState,
-	reducers: {
-		getProductQuery: (state, action) => {
-			state.query = action.payload;
-		},
-	},
+  name: 'searchQuery',
+  initialState,
+  reducers: {
+    getProductQuery: (state, action) => {
+      state.query = action.payload;
+    },
+  },
 });
 export const { getProductQuery } = querySlice.actions;
 export default querySlice.reducer;

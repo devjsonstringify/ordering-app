@@ -1,2 +1,3 @@
-import Notification from './Notification.js';
+import Notification from './Notification';
+
 export default Notification;

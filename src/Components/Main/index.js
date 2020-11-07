@@ -1,2 +1,3 @@
-import Main from './Main.js'
+import Main from './Main';
+
 export default Main;

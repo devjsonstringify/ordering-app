@@ -1,2 +1,3 @@
-import FloatCart from './FloatCart.js';
+import FloatCart from './FloatCart';
+
 export default FloatCart;
