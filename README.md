@@ -5,13 +5,15 @@
 	  <img src="./Docs/screenshot/screen-capture.gif">
 </p>
 
-## Pagkaon - ordering application
-
-###### pagkaon is a cebuano term for food
+## MEAL - ordering application
 
 ## Basic Overview - [Live Demo](https://menu-cart-order.netlify.app/)
 
-Hi random guy on the internet, I present to you my ordering application where customers select food/items then proceed to checkout and see the receipt instantly with complete details of the order. My inspiration for this is a Japanese restaurant I visited months ago. In the restaurant, the customer will just wait for a vacant table then get the order on the iPad (IPad already prepare on the table) then start ordering that it. The experience was simple and efficient no need for help otherwise you’re having trouble with it, so I decided to build this application to implement what I had experienced and to improve my skills on react.js and ecosystem, and I’m proud of it.
+I present to you my ordering application where customers select food then proceed to checkout and see the receipt instantly with complete details of the order.
+
+My inspiration for this is a Japanese restaurant I visited months ago, In the restaurant, the customer order on the iPad (IPad already prepare on the table) then start ordering and that it.
+
+The experience was simple and efficient no need for interaction with the waiter, so I decided to build this application to implement what I had experienced and to improve my skills on react.js and ecosystem, and I’m proud of it.
 
 ## Features
 
