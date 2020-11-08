@@ -1,5 +1,6 @@
 // import react library
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 // import local files
 import './style.scss';
@@ -36,7 +37,7 @@ export default function Navigation() {
       <div className="collapse navbar-collapse" id="navbarContent">
         <ul className="menu-items d-flex justify-content-sm-end mb-2 mb-lg-0 navbar-nav w-100 flex-row justify-content-sm-center justify-content-md-center justify-content-lg-end justify-content-center">
           {menus.map(({ item, href }) => (
-            <li className="nav-item d-flex" key={item}>
+            <li className="nav-item d-flex" key={uuidv4()}>
               <MenuItem {...{ item, href }} />
             </li>
           ))}
