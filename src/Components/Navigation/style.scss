@@ -1,43 +1,44 @@
 @import '../../Assets/SASS/override-variables.scss';
 
 .navbar {
-	.navbar-brand img {
-		width: 80px;
-		height: 80px;
-	}
-	a {
-		@include font-family-secondary;
-	}
+  .navbar-brand img {
+    width: 80px;
+    height: 80px;
+  }
+  .navbar-brand {
+    @include font-family-secondary;
+    font-size: 2em;
+  }
 }
 .navigation {
-	height: 100%;
-	text-transform: capitalize;
-	svg {
-		fill: $text-secondary;
-	}
+  height: 100%;
+  text-transform: capitalize;
+  svg {
+    fill: $text-secondary;
+  }
 }
 
 .menu-items {
-	margin-right: 3em;
-	a {
-		color: $text-secondary;
-		color: $text-secondary;
-		@include font-family-primary;
-		&.active {
-			background-color: $primary;
-			color: $bg-white;
-		}
-	}
+  margin-right: 3em;
+  a {
+    color: $text-secondary;
+    color: $text-secondary;
+    @include font-family-primary;
+    &.active {
+      background-color: $primary;
+      color: $bg-white;
+    }
+  }
 }
 
 @media (max-width: 575.98px) {
-	.navbar-brand > h2 {
-		font-size: 100%;
-	}
+  .navbar-brand > h2 {
+    font-size: 100%;
+  }
 
-	.cart-mobile {
-		position: absolute;
-		right: 1.5em;
-		top: 0;
-	}
+  .cart-mobile {
+    position: absolute;
+    right: 1.5em;
+    top: 0;
+  }
 }

@@ -16,8 +16,8 @@ export default function Navigation() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light p-0">
       <div className="app_logo">
-        <a className="navbar-brand text-uppercase text-body navbar-brand" href="/">
-          Pagkaon
+        <a className="navbar-brand text-body navbar-brand" href="/">
+          meal
         </a>
       </div>
       <CartIcon />
