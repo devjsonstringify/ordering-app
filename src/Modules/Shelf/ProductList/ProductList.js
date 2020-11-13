@@ -2,6 +2,7 @@
 // import react library
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 
 // import local files
 import './style.scss';
@@ -14,7 +15,7 @@ export default function ProductList({ products }) {
       <ShellHeader quantity={products.length} />
       <div className="products d-flex flex-wrap justify-content-lg-start justify-content-between">
         {products.map((product) => (
-          <Product key={Math.random()} products={product} />
+          <Product key={uuidv4()} products={product} />
         ))}
       </div>
     </>

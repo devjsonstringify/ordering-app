@@ -29,37 +29,46 @@ export default function ProductButtons({
     });
   };
   return (
-    <>
+    <div className="d-flex justify-content-center products_buttons flex-sm-row flex-column">
       {idAlreadyExists ? (
-        <div className="d-flex justify-content-center my-2 products_buttons flex-sm-row flex-column">
+        <>
           <Button
-            style="d-block w-auto btn-lg m-1 rounded-0"
+            style="col d-block w-auto btn-lg rounded-0 btn-cart btn-update-cart"
             handleClick={() => {
               handleAddProduct();
               updateNotify();
             }}
           >
-            <span className="position-relative">Add to Cart</span>
+            <span className="position-relative">Update cart</span>
           </Button>
           <Button
-            style="view_cart_btn d-block w-auto m-1 btn-lg rounded-0"
+            style="col btn-cart-view d-block w-auto btn-lg rounded-0"
             handleClick={handleViewProduct}
           >
             <span className="position-relative">View cart &#8594;</span>
           </Button>
-        </div>
+        </>
       ) : (
-        <Button
-          style="d-block w-auto btn-lg m-auto my-2 rounded-0"
-          handleClick={() => {
-            handleAddProduct();
-            addNotify();
-          }}
-        >
-          <span className="position-relative">Add to Cart</span>
-        </Button>
+        <>
+          <Button
+            style="col d-block w-auto btn-lg mx-auto rounded-0 "
+            handleClick={() => {
+              handleAddProduct();
+              addNotify();
+            }}
+          >
+            <span className="position-relative">Add to Cart</span>
+          </Button>
+          <Button
+            style="col d-block w-auto btn-lg mx-auto rounded-0 "
+            // eslint-disable-next-line no-console
+            handleClick={() => console.log('view details...')}
+          >
+            <span className="position-relative">View details &#8599;</span>
+          </Button>
+        </>
       )}
-    </>
+    </div>
   );
 }
 ProductButtons.defaultProps = {

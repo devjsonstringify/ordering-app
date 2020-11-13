@@ -1,7 +1,7 @@
 // import react library
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
+import { v4 as uuidv4 } from 'uuid';
 // import local files
 import './style.scss';
 import { VisibilityFilters, setVisibilityFilter } from '../../../../Ducks/Features/FilterSlice';
@@ -29,7 +29,7 @@ export default function CategoriesList() {
           const { visibility, active } = item;
           return (
             <Category
-              key={item.visibility}
+              key={uuidv4()}
               {...{ visibility, active }}
               handleClick={(e) => {
                 // eslint-disable-next-line no-unused-expressions

@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Satisfy&family=Roboto+Mono&display=swap');
 @import '../SASS/override-variables.scss';
 
 html,
 body,
 #root {
-	height: 100%;
-	background-color: $bg-light;
-	@include font-family-primary;
+  height: 100%;
+  background-color: $bg-light;
+  @include font-family-primary;
 }
 
 // progress bar
 .Toastify__progress-bar--default.custom_progress {
-	background-color: $primary;
+  background-color: $primary;
 }
