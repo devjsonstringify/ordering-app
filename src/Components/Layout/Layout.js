@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 // import local files
 import Navigation from '../Navigation/Navigation';
 import Main from '../Main';
+import Footer from '../Footer';
 
 // state management
 import SideBar from '../Sidebar';
@@ -18,6 +19,7 @@ export default function Layout({ children }) {
         <Main>{children}</Main>
       </div>
       <SideBar />
+      <Footer />
     </div>
   );
 }
