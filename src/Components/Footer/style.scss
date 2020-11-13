@@ -1,0 +1,12 @@
+@import '../../Assets/SASS/override-variables.scss';
+
+.footer {
+  background-color: $accent-footer;
+
+  & h5,
+  p,
+  span,
+  a {
+    color: $bg-white;
+  }
+}
