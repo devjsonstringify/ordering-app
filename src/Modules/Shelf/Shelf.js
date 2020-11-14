@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { useFirebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 
 // import local files
+import SkeletonProducts from '../../Components/SkeletonLoader/ProductListingLoader'
 import ProductList from './ProductList';
 import Spinner from '../../Components/Spinner';
 import Layout from '../../Components/Layout/Layout';
@@ -18,7 +19,7 @@ function Shelf() {
   if (!isLoaded(products)) {
     return (
       <Layout>
-        <Spinner />
+        <SkeletonProducts />
       </Layout>
     );
   }
