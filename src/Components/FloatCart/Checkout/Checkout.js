@@ -36,7 +36,7 @@ export default function Checkout() {
     return prev + cur.total;
   }, 0);
 
-  useEffect(() => {
+  const checkoutOrder = () => {
     dispatch(setBillNotify(false));
     if (productsOnCart.length > 0) {
       setCheckoutDetails({
@@ -56,13 +56,17 @@ export default function Checkout() {
         total: (calculateTotal * checkoutDetails.taxRate + calculateTotal).toFixed(2),
       });
     }
-  }, [productsOnCart, dispatch, checkoutDetails, calculateTotal]);
+  };
+
+  useEffect(() => {
+    checkoutOrder();
+  }, [productsOnCart, calculateTotal]);
 
   useEffect(() => {
     if (wasSent === 'success') {
       history.push('/bills');
     }
-  }, [wasSent, history]);
+  }, [wasSent]);
 
   const addCheckout = () => {
     updateSentState('processing');
