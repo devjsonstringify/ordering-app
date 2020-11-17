@@ -8,7 +8,7 @@ import FloatCart from '../FloatCart';
 // state management
 import { cart } from '../../Ducks/Features/CartSlice';
 import { isToggle } from '../../Ducks/Features/SideBar';
-import EmptyCart from '../FloatCart/EmptyCart';
+import EmptyCart from '../EmptyCart';
 
 export default function SideBar() {
   // local state
