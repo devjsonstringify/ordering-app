@@ -11,6 +11,7 @@ import CartIcon from '../CartIcon';
 export default function Navigation() {
   const [menus] = useState([
     { item: 'shop', href: '/' },
+    { item: 'cart', href: '/cart' },
     { item: 'bill', href: '/bills' },
   ]);
 
