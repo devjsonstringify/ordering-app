@@ -56,13 +56,13 @@ export default function Checkout() {
         total: (calculateTotal * checkoutDetails.taxRate + calculateTotal).toFixed(2),
       });
     }
-  }, [productsOnCart]);
+  }, [productsOnCart, dispatch, checkoutDetails, calculateTotal]);
 
   useEffect(() => {
     if (wasSent === 'success') {
       history.push('/bills');
     }
-  }, [wasSent]);
+  }, [wasSent, history]);
 
   const addCheckout = () => {
     updateSentState('processing');

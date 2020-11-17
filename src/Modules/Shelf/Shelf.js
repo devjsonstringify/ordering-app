@@ -5,12 +5,11 @@ import { useSelector } from 'react-redux';
 import { useFirebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 
 // import local files
-import SkeletonProducts from '../../Components/SkeletonLoader/ProductListingLoader'
+import SkeletonProducts from '../../Components/SkeletonLoader/ProductListingLoader';
 import ProductList from './ProductList';
-import Spinner from '../../Components/Spinner';
 import Layout from '../../Components/Layout/Layout';
 import Filter from './Filter';
-import { selectQuery } from '../../Ducks/Selectors/selectQuery';
+import selectQuery from '../../Ducks/Selectors/selectQuery';
 import SearchProduct from './SearchProduct';
 
 function Shelf() {
@@ -53,4 +52,3 @@ export default {
   },
   name: 'Shelf',
 };
-

@@ -1,5 +1,5 @@
 /* eslint-disable react/style-prop-object */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // import local files
@@ -8,15 +8,10 @@ import iconEmail from '../../Assets/Icons/email.png';
 import ContactItem from './ContactItem';
 
 const Contact = () => {
-  const [getInTouch, setGetInTouch] = useState([]);
-
-  useEffect(() => {
-    setGetInTouch([
-      ...getInTouch,
-      { icon: iconEmail, description: 'email@gmail.com' },
-      { icon: iconTelephone, description: '+00 12344444444444' },
-    ]);
-  }, []);
+  const getInTouch = [
+    { icon: iconEmail, description: 'email@gmail.com' },
+    { icon: iconTelephone, description: '+00 12344444444444' },
+  ];
 
   return (
     <div className="border-top">
