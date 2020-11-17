@@ -22,7 +22,7 @@ export default function SocialMedia() {
       <ul className="list-group list-group-horizontal justify-content-end">
         {sm.map(({ link, description }) => (
           <li key={uuidv4()} className="list-group-item bg-transparent">
-            <a href={link} rel="noreferrer" target="_blank" title={description}>
+            <a href={link} rel="noreferrer noopener" target="_blank" title={description}>
               <Thumb size="xsmall" thumbnail={description} />
             </a>
           </li>
