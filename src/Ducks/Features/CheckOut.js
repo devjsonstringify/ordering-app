@@ -1,4 +1,3 @@
-
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-vars */
 // import react library
@@ -9,6 +8,7 @@ export const CheckOutAdapter = createEntityAdapter();
 const CheckOut = createSlice({
   name: 'checkout',
   initialState: CheckOutAdapter.getInitialState({
+    isError: false,
     isSubmit: false,
     transactionId: '',
     notifier: false,
@@ -33,5 +33,6 @@ export const {
   getTransactionId,
   deleteAllCheckOutDetails,
   setBillNotify,
+  setAuthenticated,
 } = CheckOut.actions;
 export default CheckOut.reducer;
