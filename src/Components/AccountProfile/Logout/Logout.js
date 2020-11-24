@@ -24,6 +24,7 @@ function Logout() {
           })
         );
         dispatch(getCurrentUser([]));
+        window.location.reload();
       })
       .catch((error) => {
         // An error happened.
