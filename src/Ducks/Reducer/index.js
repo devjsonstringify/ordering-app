@@ -10,6 +10,7 @@ import sortReducer from '../Features/SortSlice';
 import filterReducer from '../Features/FilterSlice';
 import searchReducer from '../Features/SearchSlice';
 import checkoutReducer from '../Features/CheckOut';
+import userReducer from '../Features/userProfile';
 
 // root reducers
 const rootReducer = combineReducers({
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   searchQuery: searchReducer,
   checkOut: checkoutReducer,
   firebase: firebaseReducer,
+  user: userReducer,
 });
 
 export default rootReducer;

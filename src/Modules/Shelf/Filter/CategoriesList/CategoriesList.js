@@ -30,7 +30,8 @@ export default function CategoriesList() {
           return (
             <Category
               key={uuidv4()}
-              {...{ visibility, active }}
+              visibility={visibility}
+              active={active}
               handleClick={(e) => {
                 // eslint-disable-next-line no-unused-expressions
                 e.preventDefault;

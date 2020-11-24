@@ -25,11 +25,11 @@ The experience was simple and efficient no need for interaction with the waiter,
 - [x] Firebase integration
 - [x] Product cart notifier
 - [x] Cart product quantity control ( increment and decrement )
+- [x] Skeleton loader
+- [ ] User authentication
 - [ ] Responsive
 - [ ] Customer can edit/update current order after checkout submission
 - [ ] Customer can make payment
-- [ ] User authentication
-- [ ] Skeleton loader
 - [ ] Soon: Unit tests, integration tests, all sort of test.
 
 ## Technology

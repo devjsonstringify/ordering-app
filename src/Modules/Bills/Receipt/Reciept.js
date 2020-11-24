@@ -46,7 +46,7 @@ export default function Receipt({
         dispatch(setBillNotify(true));
       }
     }
-  }, [startedAt, transactionId]);
+  }, [startedAt, transactionId, notification, dispatch]);
 
   const { id, timeStamp } = headerDetails;
 

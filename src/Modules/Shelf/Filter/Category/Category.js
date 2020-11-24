@@ -1,12 +1,12 @@
+/* eslint-disable global-require */
 // import react library
-import React, { useState, useEffect } from 'react';
-
+import React from 'react';
 import PropTypes from 'prop-types';
 // import local files
 import style from './index.module.scss';
 import Thumb from '../../../../Components/Thumb/Thumb';
 
-export default function Category({visibility, btn, handleClick}) {
+function Category({ visibility, btn, handleClick }) {
   const newProps = visibility.slice(5);
   const isActive = btn.slice(5) === newProps;
   const darkImage = isActive
@@ -35,11 +35,11 @@ export default function Category({visibility, btn, handleClick}) {
     </div>
   );
 }
-Category.prototype = {
-  filter: PropTypes.string,
-  category: PropTypes.string,
-  dispatch: PropTypes.func,
+
+Category.propTypes = {
   visibility: PropTypes.string.isRequired,
   btn: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
 };
+
+export default Category;
