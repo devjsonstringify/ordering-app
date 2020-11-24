@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 /* eslint-disable global-require */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,8 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 // import local file
 import style from './index.module.scss';
-import Button from '../../Button';
-import CheckoutButtonIcon from './CheckoutButtonIcon';
+import CheckoutButton from './CheckoutButton';
 
 // state management
 import { cart, deleteAllCart } from '../../../Ducks/Features/CartSlice';
@@ -17,9 +17,12 @@ import {
   getTransactionId,
   setBillNotify,
 } from '../../../Ducks/Features/CheckOut';
+import { setAuthentication } from '../../../Ducks/Features/userProfile';
 
 export default function Checkout() {
   const firebase = useFirebase();
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [checkoutDetails, setCheckoutDetails] = useState({
     orders: [],
     subTotal: null,
@@ -28,8 +31,7 @@ export default function Checkout() {
     total: null,
     startedAt: firebase.database.ServerValue.TIMESTAMP,
   });
-  const dispatch = useDispatch();
-  const history = useHistory();
+  const isAuth = useSelector((state) => state.user.isAuthenticated.isAuth);
   const [wasSent, updateSentState] = useState('idle');
   const productsOnCart = useSelector((state) => cart.selectAll(state));
   const calculateTotal = productsOnCart.reduce((prev, cur) => {
@@ -63,14 +65,31 @@ export default function Checkout() {
   }, [productsOnCart, calculateTotal]);
 
   useEffect(() => {
-    if (wasSent === 'success') {
-      history.push('/bills');
+    if (wasSent === 'verify') {
+      history.push('/sign-in');
+      dispatch(isToggle(false));
     }
-  }, [wasSent]);
+  }, [wasSent, history, dispatch]);
 
-  const addCheckout = () => {
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        const {
+          providerData: [{ uid }],
+        } = user;
+
+        if (uid.length > 0 && wasSent === 'success') {
+          history.push('/bills');
+        }
+      }
+    });
+  }, [wasSent, history, firebase]);
+
+  const verifyUser = () => updateSentState('verify');
+
+  const addCheckout = async () => {
     updateSentState('processing');
-    return firebase
+    await firebase
       .push('checkout', checkoutDetails)
       .then((data) => {
         const {
@@ -79,16 +98,17 @@ export default function Checkout() {
         const findId = Object.values(pieces_);
         const transactionId = findId[1];
 
-        setTimeout(() => {
-          updateSentState('success');
-          dispatch(getTransactionId(transactionId));
-          dispatch(deleteAllCart());
-          dispatch(checkOutIsSubmit(false));
-          dispatch(isToggle(false));
-        }, 1500);
+        updateSentState('success');
+        dispatch(getTransactionId(transactionId));
+        dispatch(deleteAllCart());
+        dispatch(checkOutIsSubmit(false));
+        dispatch(isToggle(false));
       })
       .catch((error) => {
-        throw new Error(error);
+        updateSentState('verify');
+        dispatch(
+          setAuthentication({ isAuth: false, isError: true, message: JSON.stringify(error) })
+        );
       });
   };
 
@@ -115,13 +135,12 @@ export default function Checkout() {
         </table>
       </div>
       <div className={`${style.cartTotal}`}>
-        {/* eslint-disable-next-line react/style-prop-object */}
-        <Button style="w-100" disabled={wasSent === 'success'} handleClick={() => addCheckout()}>
-          <h4 className="text-uppercase">
-            {' '}
-            <CheckoutButtonIcon status={wasSent} />
-          </h4>
-        </Button>
+        <CheckoutButton
+          isAuthenticated={isAuth}
+          wasSent={wasSent}
+          ProceedToCheckout={addCheckout}
+          LoginBeforeCheckout={verifyUser}
+        />
       </div>
     </div>
   );

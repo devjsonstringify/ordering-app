@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function CheckoutButtonIcon({ status }) {
+export default function ButtonIcons({ status }) {
   return (
     <div>
       {(() => {
@@ -26,6 +26,6 @@ export default function CheckoutButtonIcon({ status }) {
   );
 }
 
-CheckoutButtonIcon.propTypes = {
+ButtonIcons.propTypes = {
   status: PropTypes.string.isRequired,
 };
