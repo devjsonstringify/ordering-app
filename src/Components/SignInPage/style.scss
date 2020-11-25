@@ -1,0 +1,10 @@
+@import '../../Assets/SASS/override-variables.scss';
+
+.sign-in-button {
+  button {
+    width: 100%;
+    color: $bg-white;
+    padding: 1em;
+    box-sizing: border-box;
+  }
+}
