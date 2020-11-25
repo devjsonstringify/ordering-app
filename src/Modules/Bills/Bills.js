@@ -1,3 +1,5 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable no-return-assign */
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import filter from 'lodash/filter';
@@ -16,6 +18,7 @@ import Receipt from './Receipt';
 import EmptyReceipt from './Receipt/EmptyReceipt';
 import Spinner from '../../Components/Spinner';
 import CallToAction from './CallToAction.js';
+import SignIn from '../../Components/SignInPage';
 
 function Bills() {
   const [orders, setOrders] = useState([]);
@@ -29,6 +32,7 @@ function Bills() {
   const tax = toNumber([...orders].map((keys) => keys.value.tax));
   const taxRate = toNumber([...orders].map((keys) => keys.value.taxRate));
   const total = toNumber([...orders].map((keys) => keys.value.total));
+  const isAuth = useSelector((state) => state.user.isAuthenticated.isAuth);
 
   useEffect(() => {
     toast.dismiss();
@@ -36,36 +40,38 @@ function Bills() {
       const isOrder = filter(checkout, (item) => item.key === orderById);
       if (!isEmpty(isOrder)) setOrders(isOrder);
     }
-  }, [orderById, checkout]);
+  }, [orderById, checkout, isAuth]);
 
-  let content;
-  if (!isLoaded(checkout)) {
-    content = <Spinner />;
-  } else if (!isEmpty(orders)) {
-    // eslint-disable-next-line no-return-assign
-    return (content = (
-      <Layout>
-        <div className="container m-auto bills row m-0 justify-content-between flex-column align-items-center">
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          <Receipt
-            {...{
-              transactionId,
-              checkoutOrders,
-              startedAt,
-              subTotal,
-              tax,
-              taxRate,
-              total,
-            }}
-          />
-          <CallToAction />
-        </div>
-      </Layout>
-    ));
-  } else if (isEmpty(orders)) {
-    content = <EmptyReceipt />;
-  }
-  return <Layout>{content}</Layout>;
+  const PopulateContent = () => {
+    return (
+      <>
+        {isLoaded(checkout) ? (
+          !isEmpty(orders) ? (
+            <div className="container m-auto bills row m-0 justify-content-between flex-column align-items-center">
+              {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+              <Receipt
+                {...{
+                  transactionId,
+                  checkoutOrders,
+                  startedAt,
+                  subTotal,
+                  tax,
+                  taxRate,
+                  total,
+                }}
+              />
+              <CallToAction />
+            </div>
+          ) : (
+            <EmptyReceipt />
+          )
+        ) : (
+          <Spinner />
+        )}
+      </>
+    );
+  };
+  return <Layout>{isAuth ? <PopulateContent /> : <SignIn />}</Layout>;
 }
 
 export default {
