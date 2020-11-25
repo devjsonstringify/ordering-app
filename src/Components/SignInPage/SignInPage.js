@@ -2,7 +2,7 @@ import React from 'react';
 
 // import local files
 import './style.scss';
-import  AccountProfile from '../AccountProfile';
+import AccountProfile from '../AccountProfile';
 import Header from '../Header';
 
 function SignInPage() {
