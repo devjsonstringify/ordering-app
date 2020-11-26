@@ -14,7 +14,7 @@ export default function CartIcon({ cartStyle }) {
   const productsOnCart = useSelector((state) => cart.selectAll(state));
   return (
     <Button
-      style={`cart-mobile text-capitalize text-decoration-none h-100 ${cartStyle}`}
+      style={`cart-mobile text-capitalize text-decoration-none ${cartStyle}`}
       handleClick={() => dispatch(isToggle(!sidebar))}
     >
       <p>
