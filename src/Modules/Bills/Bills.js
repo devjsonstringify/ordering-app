@@ -16,7 +16,7 @@ import './style.scss';
 import Layout from '../../Components/Layout';
 import Receipt from './Receipt';
 import EmptyReceipt from './Receipt/EmptyReceipt';
-import Spinner from '../../Components/Spinner';
+import BillLoader from '../../Components/SkeletonLoader/BillsLoader';
 import CallToAction from './CallToAction.js';
 import SignIn from '../../Components/SignInPage';
 
@@ -66,7 +66,7 @@ function Bills() {
             <EmptyReceipt />
           )
         ) : (
-          <Spinner />
+          <BillLoader />
         )}
       </>
     );
