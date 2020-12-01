@@ -11,6 +11,8 @@ import Layout from '../../Components/Layout/Layout';
 import Filter from './Filter';
 import selectQuery from '../../Ducks/Selectors/selectQuery';
 import SearchProduct from './SearchProduct';
+import Hero from '../../Components/Hero';
+import heroImage from '../../Assets/images/hero.jpg';
 
 function Shelf() {
   useFirebaseConnect([{ path: 'products' }]);
@@ -24,6 +26,11 @@ function Shelf() {
   }
   return (
     <Layout>
+      <Hero
+        quote="Fish is the only food that is considered spoiled once it smells like what it is. "
+        image={heroImage}
+        source="P. J. O'Rourke"
+      />
       <SearchProduct />
       <Filter />
 
