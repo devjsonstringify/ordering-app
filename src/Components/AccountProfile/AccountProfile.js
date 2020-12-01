@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFirebase } from 'react-redux-firebase';
@@ -10,7 +11,7 @@ import Logout from './Logout';
 // state management files
 import { getCurrentUser, setAuthentication } from '../../Ducks/Features/userProfile';
 
-function AccountProfile() {
+function AccountProfile(props) {
   const firebase = useFirebase();
   const dispatch = useDispatch();
   const getUser = useSelector((state) => state.user.providerData);
@@ -28,7 +29,7 @@ function AccountProfile() {
       }
     });
   }, [dispatch]);
-  return <>{isEmpty(getUser) && !isAuth ? <Login /> : <Logout />}</>;
+  return <>{isEmpty(getUser) && !isAuth ? <Login {...props} /> : <Logout {...props} />}</>;
 }
 
 export default AccountProfile;
