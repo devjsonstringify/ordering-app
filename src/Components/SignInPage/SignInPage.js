@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 import React from 'react';
 
 // import local files
@@ -12,8 +13,8 @@ function SignInPage() {
         regular="Please sign-in first with your Google account."
         strong="In order to proceed,"
       />
-      <div className="sign-in-button mt-5 border border-5  rounded-pill w-25 bg-primary">
-        <AccountProfile />
+      <div className="sign-in-button mt-5 border-5 w-25">
+        <AccountProfile style="rounded-pill border " />
       </div>
     </div>
   );

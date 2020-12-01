@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// import local files
+import Thumb from '../../../Components/Thumb';
+import logo from '../../../Assets/images/logo.png';
+
 export default function Header({ id, timeStamp }) {
   return (
     <div className="bill_header">
       <div>
-        <h2 className="text-uppercase text-center">Pagkaon - mini restaurant</h2>
+        <div className="my-4">
+          <Thumb thumbnail={logo} size="medium" />
+        </div>
+        <h2 className="text-uppercase text-center">MEAL - mini restaurant</h2>
         <address className="text-center">
           101 Stadium Area #773-54-55 Northern Direction Hidden Games Leaf Village, Planet Earth
           98000

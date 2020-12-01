@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useFirebase } from 'react-redux-firebase';
@@ -6,7 +7,7 @@ import { getCurrentUser, setAuthentication } from '../../../Ducks/Features/userP
 // import local files
 import Button from '../AccountBtn';
 
-function Logout() {
+function Logout(props) {
   const firebase = useFirebase();
   const dispatch = useDispatch();
 
@@ -38,7 +39,7 @@ function Logout() {
         );
       });
   }
-  return <Button text="Logout" handleClick={handleEventLogout} />;
+  return <Button text="Logout" handleClick={handleEventLogout} {...props} />;
 }
 
 export default Logout;

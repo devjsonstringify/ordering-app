@@ -2,8 +2,9 @@
 
 .navbar {
   .navbar-brand img {
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    max-width: 120px;
+    height: auto;
   }
   .navbar-brand {
     @include font-family-secondary;

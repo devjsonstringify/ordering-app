@@ -1,18 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+// import local files
+import '../style.scss';
+import Info from '../../../Components/Info';
+import Hero from '../../../Components/Hero';
+import heroImage from '../../../Assets/images/lemon.jpg';
 
 export default function EmptyReceipt() {
   return (
-    <div className="alert alert-warning" role="alert">
-      <h4 className="alert-heading">Oops!</h4>
-      <p>Aww yeah, No receipt found here.</p>
-      <hr />
-      <p className="mb-0 d-flex justify-content-between">
-        Please add order to your cart.
-        <span>
-          <Link to="/">Add products now?</Link>
-        </span>
-      </p>
-    </div>
+    <>
+      <Hero
+        quote="I'm not sure what makes pepperoni so good if it's the pepper or the oni."
+        image={heroImage}
+        source="Ulrik Stephens"
+      />
+      <Info
+        header="Your shopping cart is currently empty"
+        description="Your receipt is currently empty."
+        LinkTo="/cart"
+        LinkText="check out"
+        size="medium"
+      />
+    </>
   );
 }

@@ -22,12 +22,8 @@ export default function SearchProduct() {
   };
 
   return (
-    <Header
-      strong="Menu"
-      regular="Category"
-      classes="search flex-column align-items-center mb-4 text-center"
-    >
-      <div className={`input-group input-group-lg my-5 ${style.search}`}>
+    <Header classes={`${style.search_wrapper} flex-column align-items-center mb-4 text-center`}>
+      <div className={`input-group input-group-lg mt-5 mb-3 ${style.search}`}>
         <span className="input-group-text">
           <svg
             width="1em"

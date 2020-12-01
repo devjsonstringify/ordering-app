@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/style-prop-object */
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -10,7 +11,7 @@ import Button from '../AccountBtn';
 // state management files
 import { getCurrentUser, setAuthentication } from '../../../Ducks/Features/userProfile';
 
-function Login() {
+function Login(props) {
   const firebase = useFirebase();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -52,7 +53,7 @@ function Login() {
         history.push('/sign-in');
       });
   }
-  return <Button text="Login" handleClick={handleEventLogin} />;
+  return <Button text="Login" handleClick={handleEventLogin} {...props} />;
 }
 
 export default Login;
