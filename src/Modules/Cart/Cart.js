@@ -12,7 +12,7 @@ function Cart() {
   const productsOnCart = useSelector((state) => cart.selectAll(state));
   return (
     <Layout>
-      <div className="container">{!isEmpty(productsOnCart) ? <FloatCart /> : <EmptyCart />}</div>
+      <>{!isEmpty(productsOnCart) ? <FloatCart /> : <EmptyCart />}</>
     </Layout>
   );
 }
