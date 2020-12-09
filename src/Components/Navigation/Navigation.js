@@ -7,6 +7,8 @@ import './style.scss';
 import MenuItem from './MenuItem';
 import CartIcon from '../CartIcon';
 import AccountProfile from '../AccountProfile';
+import Thumb from '../Thumb';
+import logo from '../../Assets/images/logo.png';
 
 // state management
 export default function Navigation() {
@@ -19,8 +21,8 @@ export default function Navigation() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light p-0">
       <div className="app_logo">
-        <a className="navbar-brand text-body navbar-brand" href="/">
-          meal
+        <a className="navbar-brand text-body" href="/">
+          <Thumb thumbnail={logo} />
         </a>
       </div>
       <CartIcon />
@@ -36,7 +38,7 @@ export default function Navigation() {
         <span className="navbar-toggler-icon" />
       </button>
 
-      <div className="collapse navbar-collapse" id="navbarContent">
+      <div className="collapse navbar-collapse align-self-baseline" id="navbarContent">
         <ul className="menu-items d-flex justify-content-sm-end mb-2 mb-lg-0 navbar-nav w-100 flex-row justify-content-sm-center justify-content-md-center justify-content-lg-end justify-content-center">
           <>
             {menus.map(({ item, href }) => (

@@ -1,21 +1,16 @@
-$accent-A: #ffffff;
-$accent-B: #e7201f;
-$accent-C: #000000;
+@import '../../Assets/SASS/override-variables.scss';
 
-body.bills {
-	background: $accent-B !important;
-}
 .order_receipt .bill_header,
 .order_receipt .border-top,
 .order_receipt .order_total {
-	border: 2px dashed $accent-C;
-	padding: 1em;
-	box-sizing: border-box;
+  border: 2px dashed $bg-primary;
+  padding: 1em;
+  box-sizing: border-box;
 }
 .bill_header {
-	background-color: $accent-B;
-	color: $accent-A;
+  background-color: $bg-primary;
+  color: $bg-white;
 }
 .order_total {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }

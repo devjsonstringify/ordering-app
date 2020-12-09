@@ -1,0 +1,25 @@
+@import '../../Assets/SASS/override-variables.scss';
+
+.sign-in-button {
+  button {
+    margin: auto;
+    font-weight: 500;
+    padding: 1em 2em;
+    color: $text-primary !important;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: $bg-white;
+    border: 3px solid $text-primary !important;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+
+    &:hover {
+      background: rgba($bg-primary, $alpha: 1);
+      color: $bg-white !important;
+      border: 3px solid $bg-white !important;
+      text-decoration: none;
+    }
+  }
+}

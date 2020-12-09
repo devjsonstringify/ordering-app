@@ -114,7 +114,7 @@ export default function Checkout() {
 
   const { subTotal, tax, total } = checkoutDetails;
   return (
-    <div className={`mt-5 ${style.checkout}`}>
+    <div className={`mt-5 ${style.checkout} bg-transparent`}>
       <div className="cart-taxes mt-5">
         <h3 className="text-body text-left p-2">Order Summary</h3>
         <table className="table table-borderless">
